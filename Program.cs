@@ -20,11 +20,11 @@ namespace node1
 
             for (int i = 0; i < spisok.list.Count; i++)
             {
-                Console.WriteLine(spisok.list[i]);
+                Console.WriteLine(spisok.list[i].Name);
                 Console.WriteLine(spisok.list[i].Id);
                 Console.WriteLine(spisok.list[i].Description);
-
             }
+            Console.ReadKey();
 
         }
     }

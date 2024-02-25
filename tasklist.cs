@@ -15,21 +15,28 @@ namespace node1
         public string Name { get => name; set => name = value; }
         public int Id { get => id; set => id = value; }
 
-        public Tasklist(string Name, int Id, List<Task> List)
+        public Tasklist(string Name, int Id)
         {
             name = Name;
             id = Id;
-            List<Task> list = new List<Task>();
+            List<Task> List = new List<Task>();
+            list = List;
         }
         public Tasklist()
         {
             name = "";
             id = 0;
-            List<Task> list = new List<Task>();
+            List<Task> List = new List<Task>();
+            list = List;
         }
         public void Add(Task element)
         {
             list.Add(element);
+        }
+        public class CardListData : UniqueData
+        {
+            public bool IsEssential;
+            public List<CardData> List;
         }
 
     }
