@@ -6,19 +6,26 @@ using System.Threading.Tasks;
 
 namespace node1
 {
-    public class task
+    public class Task
     {
         private string name;
         private int id;
-        public List<tasklist> List;
+        private string description;
 
         public string Name { get => name; set => name = value; }
         public int Id { get => id; set => id = value; }
-        
-        public task Create()
+        public string Description { get => description; set => description = value; }
+        public Task()
         {
-
-            
+            Name = "";
+            Id = 0;
+            Description = "";
+        }
+        public Task( string _Name, int _Id,string _Description)
+        {
+            Name = _Name;
+            Id = _Id;
+            Description = _Description;
         }
     }
 }

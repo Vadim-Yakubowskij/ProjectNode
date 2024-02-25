@@ -6,14 +6,31 @@ using System.Threading.Tasks;
 
 namespace node1
 {
-    public class tasklist
+    public class Tasklist
     {
         private string name;
         private int id;
-        private string description;
+        public List<Task> list;
 
         public string Name { get => name; set => name = value; }
         public int Id { get => id; set => id = value; }
-        public string Description { get => description; set => description = value; }
+
+        public Tasklist(string Name, int Id, List<Task> List)
+        {
+            name = Name;
+            id = Id;
+            List<Task> list = new List<Task>();
+        }
+        public Tasklist()
+        {
+            name = "";
+            id = 0;
+            List<Task> list = new List<Task>();
+        }
+        public void Add(Task element)
+        {
+            list.Add(element);
+        }
+
     }
 }

@@ -10,9 +10,21 @@ namespace node1
     {
         static void Main(string[] args)
         {
+            Task a = new Task("First",10,"dldl");
+            Task b = new Task("two", 11 , "deff");
+            Task c = new Task();
+            Tasklist spisok = new Tasklist();
+            spisok.Add(a);
+            spisok.Add(b);
+            spisok.Add(c);
 
+            for (int i = 0; i < spisok.list.Count; i++)
+            {
+                Console.WriteLine(spisok.list[i]);
+                Console.WriteLine(spisok.list[i].Id);
+                Console.WriteLine(spisok.list[i].Description);
 
-
+            }
 
         }
     }
