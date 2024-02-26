@@ -25,7 +25,7 @@ namespace node1
                 Console.WriteLine(spisok.list[i].Description);
             }
             Console.ReadKey();
-
+           
         }
     }
 }

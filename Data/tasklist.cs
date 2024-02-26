@@ -33,11 +33,6 @@ namespace node1
         {
             list.Add(element);
         }
-        public class CardListData : UniqueData
-        {
-            public bool IsEssential;
-            public List<CardData> List;
-        }
 
     }
 }

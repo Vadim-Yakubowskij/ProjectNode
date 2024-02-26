@@ -17,7 +17,7 @@ namespace node1
         public string Source => Path.Combine(SourceDirectory, FileName);
         public string SourceDirectory => Path.Combine(_source, DirectoryName);
 
-        private void WriteCardListData(List<Tasklist> data)
+        private void WriteTasklist(List<Tasklist> data)
         {
             using (StreamWriter writer = new StreamWriter(Source))
             {
@@ -39,7 +39,8 @@ namespace node1
             File.Create(Source).Close();
 
 
-            WriteCardListData(new List<Tasklist>());
+            WriteTasklist(new List<Tasklist>());
         }
+        
     }
 }
