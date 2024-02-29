@@ -10,13 +10,23 @@ namespace node1
     {
         static void Main(string[] args)
         {
-            Task a = new Task("First",10,"dldl");
-            Task b = new Task("two", 11 , "deff");
-            Task c = new Task();
-            Tasklist spisok = new Tasklist();
+            Manager manager = Manager.Instance;
+            Tasklist tmp = manager.All[0];
+
+            for (int i = 0; i < tmp.list.Count; i++)
+            {
+                Console.WriteLine(tmp.list[i].Name);
+                Console.WriteLine(tmp.list[i].Id);
+                Console.WriteLine(tmp.list[i].Description);
+            }
+
+            Console.ReadKey();
+
+            Task a = new Task("First","dldl");
+            Task b = new Task("two", "deff");
+            Tasklist spisok = new Tasklist("qwerty");
             spisok.Add(a);
             spisok.Add(b);
-            spisok.Add(c);
 
             for (int i = 0; i < spisok.list.Count; i++)
             {
@@ -24,7 +34,12 @@ namespace node1
                 Console.WriteLine(spisok.list[i].Id);
                 Console.WriteLine(spisok.list[i].Description);
             }
+            manager.SetList(spisok);
+            manager.SaveData();
+
+
             Console.ReadKey();
+
            
         }
     }
