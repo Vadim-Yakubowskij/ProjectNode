@@ -129,7 +129,8 @@ namespace node1
         /// </summary>
         /// <param name="list">Список карт</param>
         public void SetList(Tasklist list)
-        {   
+        {
+            //TODO: поменять на викпозишн
             All[list.Id] = list;
         }
 

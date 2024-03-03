@@ -156,6 +156,7 @@ namespace node1
     {
         public DateTimeContainerData Date;
         public string Description;
+        public bool IsCompleted;
     }
 
     /// <summary>
@@ -172,7 +173,7 @@ namespace node1
         {
             DateTimeContainer date = DateTimeContainer.FromData(data.Date);
 
-            return new Task(data.Id, data.Name, date, data.Description);
+            return new Task(data.Id, data.Name, date, data.Description,data.IsCompleted);
         }
 
         /// <summary>
@@ -186,16 +187,6 @@ namespace node1
         private string _description = String.Empty;
 
         /// <summary>
-        /// Статус важности
-        /// </summary>
-        private bool _isImportant = false;
-
-        /// <summary>
-        /// Статус выполнения
-        /// </summary>
-        private bool _isCompleted = false;
-
-        /// <summary>
         /// Расширенный конструктор
         /// </summary>
         /// <param name="id">Идентификатор</param>
@@ -204,11 +195,19 @@ namespace node1
         /// <param name="description">Описание</param>
         /// <param name="isImportant">Статус важности</param>
         /// <param name="isCompleted">Статус выполнения</param>
-        public Task(int id, string name, DateTimeContainer date, string description) : this(id, name, date)
+        public Task(int id, string name, DateTimeContainer date, string description , bool isCompleted) : this(id, name, date)
         {
             Description = description;
+            IsCompleted = isCompleted;
 
         }
+        public bool IsCompleted
+        {
+            get => _isCompleted;
+            set => _isCompleted = value;
+        }
+        private bool _isCompleted = false;
+
 
         /// <summary>
         /// Базовый конструктор
@@ -243,6 +242,7 @@ namespace node1
                 Name = Name,
                 Date = Date.ToData(),
                 Description = Description,
+                IsCompleted = IsCompleted
             };
         }
 

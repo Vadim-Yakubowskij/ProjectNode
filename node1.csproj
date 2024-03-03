@@ -50,6 +50,7 @@
     <Compile Include="Data\Tasklist.cs" />
     <Compile Include="Data\Task.cs" />
     <Compile Include="Data\Unique.cs" />
+    <Compile Include="Randomaizer.cs" />
     <Compile Include="ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

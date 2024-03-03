@@ -40,6 +40,8 @@ namespace node1
     {
         public bool IsEssential;
         public List<TaskData> List;
+        public float completionPercentage;
+
     }
 
     /// <summary>
@@ -198,7 +200,7 @@ namespace node1
         /// </summary>
         /// <param name="order">Статус сортировки</param>
         /// <returns>Список карт</returns>
-       
+
 
         /// <summary>
         /// Получить отсортированный по важности
@@ -207,7 +209,7 @@ namespace node1
         /// </summary>
         /// <param name="order">Статус сортировки</param>
         /// <returns>Список карт</returns>
-       
+
 
         /// <summary>
         /// Получить отсортированный по статусу выполнения
@@ -216,8 +218,11 @@ namespace node1
         /// </summary>
         /// <param name="order">Статус сортировки</param>
         /// <returns>Список карт</returns>
-        
 
+        public List<Task> GetListCompleted(SortOrder order = SortOrder.Descending)
+        {
+            return GetListSorted(_idListCompleted, order);
+        }
         /// <summary>
         /// Получить список карт по части названия или описания
         /// </summary>

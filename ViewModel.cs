@@ -10,11 +10,11 @@ namespace node1
     {
         public void print(Tasklist element)
         {
-            for (int i = 0; i < element.list.Count; i++)
+            for (int i = 0; i < element.All.Count; i++)
             {
-                Console.WriteLine(element.list[i]);
-                Console.WriteLine(element.list[i].Id);
-                Console.WriteLine(element.list[i].Description);
+                Console.WriteLine(element.All[i]);
+                Console.WriteLine(element.All[i].Id);
+                Console.WriteLine(element.All[i].Description);
 
             }
         }

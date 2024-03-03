@@ -67,15 +67,17 @@ namespace node1
         /// </summary>
         private string _name;
 
+
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="id">Идентификатор</param>
         /// <param name="name">Название</param>
-        public Unique(int id, string name)
+        public Unique(int id, string name, bool isComplited)
         {
             Id = id;
             Name = name;
+
         }
 
         /// <summary>

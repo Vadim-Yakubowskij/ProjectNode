@@ -10,37 +10,77 @@ namespace node1
     {
         static void Main(string[] args)
         {
-            Manager manager = Manager.Instance;
-            Tasklist tmp = manager.All[0];
+                //TEST
+                // Инициализация менеджера как можно раньше
+                _ = Manager.Instance;
 
-            for (int i = 0; i < tmp.list.Count; i++)
+                // Запуск цепочки тестирования в консоли
+                TestRandomCard(3);
+                TestCardList(5);
+                TestCardListManager(3, 5);
+
+
+                Console.ReadKey();
+        }
+
+            /// <summary>
+            /// Запустить тест создания случайных карт
+            /// </summary>
+            /// <param name="cardCount">Количество карт</param>
+            private static void TestRandomCard(int cardCount)
             {
-                Console.WriteLine(tmp.list[i].Name);
-                Console.WriteLine(tmp.list[i].Id);
-                Console.WriteLine(tmp.list[i].Description);
+                Console.WriteLine("Создание случайных карт:");
+
+                for (int i = 0; i < cardCount; i++)
+                {
+                    Console.WriteLine(Randomizer.RandomTask());
+                }
+
+                Console.WriteLine();
             }
 
-            Console.ReadKey();
-
-            Task a = new Task("First","dldl");
-            Task b = new Task("two", "deff");
-            Tasklist spisok = new Tasklist("qwerty");
-            spisok.Add(a);
-            spisok.Add(b);
-
-            for (int i = 0; i < spisok.list.Count; i++)
+            /// <summary>
+            /// Запустить тест создания случайного списка карт и сортировки
+            /// </summary>
+            /// <param name="cardCount">Количество карт в списке</param>
+            private static void TestCardList(int cardCount)
             {
-                Console.WriteLine(spisok.list[i].Name);
-                Console.WriteLine(spisok.list[i].Id);
-                Console.WriteLine(spisok.list[i].Description);
+                Console.WriteLine("Создание случайного списка карт и сортировки:");
+
+                Tasklist list = Randomizer.RandomTasklist(cardCount);
+
+                Console.WriteLine();
             }
-            manager.SetList(spisok);
-            manager.SaveData();
 
+            /// <summary>
+            /// Запустить тест создания случайных списков карт в менеджере и работы с данными
+            /// </summary>
+            /// <param name="cardlistCount">Количество списков</param>
+            /// <param name="cardCount">Количество карт в списке</param>
+            private static void TestCardListManager(int cardlistCount, int cardCount)
+            {
+                Console.WriteLine("Создание случайных списков карт в менеджере и работа с данными:");
 
-            Console.ReadKey();
+                Manager manager = Manager.Instance;
 
-           
+                // Данные загружаются из файла
+                // Так что мы их перезапишем
+                // Но идентификаторы продолжат инкременироваться (это ок)
+                manager.All.Clear();
+
+                for (int i = 0; i < cardlistCount; i++)
+                {
+                    manager.SetList(Randomizer.RandomTasklist(cardCount));
+                }
+
+                manager.SaveData();
+
+                foreach (KeyValuePair<int, Tasklist> item in manager.All)
+                {
+                    Console.WriteLine(item.Value);
+                }
+
+                Console.WriteLine();
+            }
         }
     }
-}
