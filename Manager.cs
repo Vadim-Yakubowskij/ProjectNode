@@ -130,8 +130,7 @@ namespace node1
         /// <param name="list">Список карт</param>
         public void SetList(Tasklist list)
         {
-            //TODO: поменять на викпозишн
-            All[list.Id] = list;
+            All[list.PositionInWeek] = list;
         }
 
         /// <summary>
@@ -189,10 +188,23 @@ namespace node1
             // Пустой файл
             File.Create(Source).Close();
 
+            //TODO: Попробовать сделать фабрику для недели
+
             // Даже если сохранять нечего
             // В любом случае мы создадим корректную xml основу
             // И пустой файл превратится в читаемый программой источник
+            //TODO: Создавать список дней недели без тасков - просто 7 тасклистов
             WriteCardListData(new List<TasklistData>());
+
+            //WriteCardListData(new List<TasklistData>() {
+            //    new Tasklist().ToData(),
+            //    new Tasklist().ToData(),
+            //    new Tasklist().ToData(),
+            //    new Tasklist().ToData(),
+            //    new Tasklist().ToData(),
+            //    new Tasklist().ToData(),
+            //    new Tasklist().ToData(),
+            //});
         }
 
         /// <summary>

@@ -89,6 +89,12 @@ namespace node1
             // PASS
         }
 
+        protected Unique(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
 
         /// <summary>
         /// Доступ к уникальному идентификатору

@@ -38,10 +38,11 @@ namespace node1
     /// </summary>
     public class TasklistData : UniqueData
     {
+        //TODO: убрать IsEssential
         public bool IsEssential;
         public List<TaskData> List;
         public float completionPercentage;
-
+        public int PositionInWeek;
     }
 
     /// <summary>
@@ -66,10 +67,13 @@ namespace node1
             return new Tasklist(data.Id, data.Name, data.IsEssential, list);
         }
 
+        //TODO: убрать из есеншиал. Все такие тасклисты и так эсеншиал :)
         /// <summary>
         /// Статус закрепления
         /// </summary>
         private bool _isEssential;
+
+        private int _positionInWeek;
 
         /// <summary>
         /// Хранилище карт
@@ -97,6 +101,8 @@ namespace node1
         /// </summary>
         private readonly List<int> _idListCompleted = new List<int>();
 
+        private readonly List<int> _idPositionInWeek = new List<int>();
+
         /// <summary>
         /// Статус сортировки
         /// </summary>
@@ -116,6 +122,8 @@ namespace node1
                 Set(task);
             }
         }
+
+        //TODO: конструктор по викпозишену
 
         /// <summary>
         /// Конструктор пустого списка
@@ -156,7 +164,8 @@ namespace node1
                 Id = Id,
                 Name = Name,
                 IsEssential = IsEssential,
-                List = list
+                List = list,
+                PositionInWeek = PositionInWeek
             };
         }
 
@@ -167,6 +176,11 @@ namespace node1
         {
             get => _isEssential;
             private set => _isEssential = value;
+        }
+        public int PositionInWeek
+        {
+            get => _positionInWeek;
+            private set => _positionInWeek = value;
         }
 
         /// <summary>
@@ -296,10 +310,10 @@ namespace node1
         /// Сохранить карту
         /// </summary>
         /// <param name="card">Объект карты</param>
-        public void Set(Task card)
+        public void Set(Task task)
         {
             Status = SortOrder.Initial;
-            All[card.Id] = card;
+            All[task.Id] = task;
         }
 
         /// <summary>
@@ -388,6 +402,7 @@ namespace node1
             _idListDefault.Clear();
             _idListImportant.Clear();
             _idListCompleted.Clear();
+            _idPositionInWeek.Clear();
 
             foreach (KeyValuePair<int, Task> item in Source(order))
             {
