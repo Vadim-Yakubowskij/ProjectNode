@@ -38,10 +38,9 @@ namespace node1
     /// </summary>
     public class TasklistData : UniqueData
     {
-        //TODO: убрать IsEssential
         public bool IsEssential;
         public List<TaskData> List;
-        public float completionPercentage;
+        public float CompletionPercentage;
         public int PositionInWeek;
     }
 
@@ -72,6 +71,8 @@ namespace node1
         /// Статус закрепления
         /// </summary>
         private bool _isEssential;
+
+        private float _completionPercentage;
 
         private int _positionInWeek;
 
@@ -122,7 +123,25 @@ namespace node1
                 Set(task);
             }
         }
-
+        //TODO: создать процентное соотношение всех выполненых задач в таск листе по отношению ко всем задачам по полю iscompelited
+        public float Percent()
+        {
+            float percent = 0;
+            int sum = 0;
+            foreach(KeyValuePair<int,Task> pair in All)
+            {
+                if (pair.Value.IsCompleted)
+                {
+                    sum++;
+                }
+            }
+            percent = (sum * 100) / All.Count; 
+            return percent;
+        }
+        public Tasklist(int id, string name, bool isEssential, List<Task> list, int weekPosition) : this(id, name, isEssential,list)
+        {
+            PositionInWeek = weekPosition;
+        }
         //TODO: конструктор по викпозишену
 
         /// <summary>
@@ -165,7 +184,8 @@ namespace node1
                 Name = Name,
                 IsEssential = IsEssential,
                 List = list,
-                PositionInWeek = PositionInWeek
+                PositionInWeek = PositionInWeek,
+                CompletionPercentage = CompletionPercentage
             };
         }
 
@@ -181,6 +201,12 @@ namespace node1
         {
             get => _positionInWeek;
             private set => _positionInWeek = value;
+        }
+
+        public float CompletionPercentage
+        {
+            get => _completionPercentage;
+            private set => _completionPercentage = value;
         }
 
         /// <summary>

@@ -160,8 +160,6 @@ namespace node1
         {
             CreateDataSource();
 
-            // Внедряем закрепленные списки карт в начало
-            InjectEssentials();
 
             List<TasklistData> data = new List<TasklistData>();
 
@@ -194,17 +192,16 @@ namespace node1
             // В любом случае мы создадим корректную xml основу
             // И пустой файл превратится в читаемый программой источник
             //TODO: Создавать список дней недели без тасков - просто 7 тасклистов
-            WriteCardListData(new List<TasklistData>());
 
-            //WriteCardListData(new List<TasklistData>() {
-            //    new Tasklist().ToData(),
-            //    new Tasklist().ToData(),
-            //    new Tasklist().ToData(),
-            //    new Tasklist().ToData(),
-            //    new Tasklist().ToData(),
-            //    new Tasklist().ToData(),
-            //    new Tasklist().ToData(),
-            //});
+            WriteCardListData(new List<TasklistData>() {
+                new Tasklist(0,"Понидельник",true,new List<Task>(),0).ToData(),
+                new Tasklist(1,"Вторник",true,new List<Task>(),1).ToData(),
+                new Tasklist(2,"Среда",true,new List<Task>(),2).ToData(),
+                new Tasklist(3,"Четверг",true,new List<Task>(),3).ToData(),
+                new Tasklist(4,"Пятница",true,new List<Task>(),4).ToData(),
+                new Tasklist(5,"Суббота",true,new List<Task>(),5).ToData(),
+                new Tasklist(6,"Воскресенье",true,new List<Task>(),6).ToData(),
+            });
         }
 
         /// <summary>
@@ -235,38 +232,13 @@ namespace node1
 
                 // Очищаем списки карт перед загрузкой новых
                 All.Clear();
-
                 foreach (TasklistData item in data)
                 {
                     SetList(Tasklist.FromData(item));
                 }
             }
 
-            // Внедряем закрепленные списки карт в конце
-            // Тем самым ограничиваем возможность их случайной перезаписи
-            InjectEssentials();
         }
 
-        /// <summary>
-        /// Внедрить закрепленные списки карт
-        /// </summary>
-        private void InjectEssentials()
-        {
-            foreach (Tasklist cardList in _listEssential)
-            {
-                if (ContainsList(cardList.Id))
-                {
-                    if (GetList(cardList.Id).Equals(cardList))
-                    {
-                        continue;
-                    }
-                }
-
-                // Если под указанным идентификатором уже существует карта
-                // Но ее название отличается от названия закрепленной
-                // Это считается повреждением данных и карта будет перезаписана
-                SetList(cardList);
-            }
-        }
     }
 }
