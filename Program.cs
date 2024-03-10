@@ -82,15 +82,14 @@ namespace node1
                     item.Value.Set(Randomizer.RandomTask());
                 }
             }
-            manager.SaveData();
             var all = manager.All;
+            manager.SaveData();
+            all = manager.All;
             foreach (KeyValuePair<int, Tasklist> item in manager.All)
             {
-
                 Console.WriteLine(item.Value.PositionInWeek);
                 Console.WriteLine(item.Value.Percent());
             }
-
             Console.WriteLine();
         }
     }

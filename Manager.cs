@@ -39,7 +39,6 @@ namespace node1
         /// Экземпляр класса одиночки
         /// </summary>
         private static Manager _instance = null;
-
         /// <summary>
         /// Глобальная точка доступа к классу
         /// Реализация шаблона Singleton

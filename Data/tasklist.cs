@@ -63,7 +63,7 @@ namespace node1
                 list.Add(Task.FromData(cardData));
             }
 
-            return new Tasklist(data.Id, data.Name, data.IsEssential, list);
+            return new Tasklist(data.Id, data.Name, data.IsEssential, list,data.PositionInWeek);
         }
 
         //TODO: убрать из есеншиал. Все такие тасклисты и так эсеншиал :)
