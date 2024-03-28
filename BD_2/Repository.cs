@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SQLite;
 
-namespace BD
+namespace BD_2
 {
     class Repository
     {
@@ -16,28 +16,19 @@ namespace BD
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\BD\\BD\\Tasklist.db; FailIfMissing=False");
+                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
                 connection.Open();
                 Console.WriteLine("Connected!");
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT INTO \"tasks\" VALUES(NULL, \"дописать базу данных\", \"CRUD\")"
+                    CommandText = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")"
                 };
-                command = new SQLiteCommand(connection)
-                {
-                    CommandText = "SELECT * FROM \"tasks\";"
-                };
-                Console.WriteLine("Результат запроса:");
+                Console.WriteLine("Добавлен новый элемент в тасклист:");
                 DataTable data = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 adapter.Fill(data);
-                Console.WriteLine($"Прочитано {data.Rows.Count} записей из таблицы БД");
-                foreach (DataRow row in data.Rows)
-                {
-                    Console.WriteLine($"id = {row.Field<Int64>("id")} name = {row.Field<string>("name")} more details = {row.Field<string>("more details")}");
-                }
             }
-            catch(SQLiteException ex)
+            catch (SQLiteException ex)
             {
                 Console.WriteLine($"Ошибка доступа к базе данных. Исключение: {ex.Message}");
             }
@@ -47,7 +38,7 @@ namespace BD
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\BD\\BD\\Tasklist.db; FailIfMissing=False");
+                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
                 connection.Open();
                 Console.WriteLine("Connected!");
                 command = new SQLiteCommand(connection)
@@ -74,22 +65,22 @@ namespace BD
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\BD\\BD\\Tasklist.db; FailIfMissing=False");
+                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
                 connection.Open();
                 Console.WriteLine("Connected!");
                 command = new SQLiteCommand(connection)
                 {
+                    CommandText = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")"
+                };
+                command = new SQLiteCommand(connection)
+                {
                     CommandText = "SELECT * FROM \"tasks\";"
                 };
-                Console.WriteLine("Результат запроса:");
+
+                Console.WriteLine("Добавлен новый элемент в тасклист:");
                 DataTable data = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 adapter.Fill(data);
-                Console.WriteLine($"Прочитано {data.Rows.Count} записей из таблицы БД");
-                foreach (DataRow row in data.Rows)
-                {
-                    Console.WriteLine($"id = {row.Field<Int64>("id")} name = {row.Field<string>("name")} more details = {row.Field<string>("more details")}");
-                }
             }
             catch (SQLiteException ex)
             {
@@ -101,22 +92,17 @@ namespace BD
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\BD\\BD\\Tasklist.db; FailIfMissing=False");
+                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
                 connection.Open();
                 Console.WriteLine("Connected!");
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "SELECT * FROM \"tasks\";"
+                    CommandText = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")"
                 };
-                Console.WriteLine("Результат запроса:");
+                Console.WriteLine("Добавлен новый элемент в тасклист:");
                 DataTable data = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 adapter.Fill(data);
-                Console.WriteLine($"Прочитано {data.Rows.Count} записей из таблицы БД");
-                foreach (DataRow row in data.Rows)
-                {
-                    Console.WriteLine($"id = {row.Field<Int64>("id")} name = {row.Field<string>("name")} more details = {row.Field<string>("more details")}");
-                }
             }
             catch (SQLiteException ex)
             {
@@ -124,15 +110,5 @@ namespace BD
             }
             Console.Read();
         }
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace TEstSQLITE
+namespace BD_2
 {
     internal class Program
     {
@@ -18,7 +18,7 @@ namespace TEstSQLITE
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\BD\\BD\\Tasklist.db; FailIfMissing=False");
+                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
                 connection.Open();
                 Console.WriteLine("Connected!");
                 /*commandCreate = new SQLiteCommand(connection)
