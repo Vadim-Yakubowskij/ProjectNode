@@ -8,15 +8,16 @@ using System.Data.SQLite;
 
 namespace BD_2
 {
-    class Repository
+    class ClassInterface : Interface
     {
+        private const string ConnectionString = "Data Source=C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False";
         static SQLiteConnection connection;
         static SQLiteCommand command;
-        static void Create()
+        void create()
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
+                connection = new SQLiteConnection(ConnectionString);
                 connection.Open();
                 Console.WriteLine("Connected!");
                 command = new SQLiteCommand(connection)
@@ -34,11 +35,11 @@ namespace BD_2
             }
             Console.Read();
         }
-        static void Read()
+        void read()
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
+                connection = new SQLiteConnection(ConnectionString);
                 connection.Open();
                 Console.WriteLine("Connected!");
                 command = new SQLiteCommand(connection)
@@ -61,54 +62,44 @@ namespace BD_2
             }
             Console.Read();
         }
-        static void Update()
+        void Update()
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
-                connection.Open();
-                Console.WriteLine("Connected!");
-                command = new SQLiteCommand(connection)
-                {
-                    CommandText = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")"
-                };
-                command = new SQLiteCommand(connection)
-                {
-                    CommandText = "SELECT * FROM \"tasks\";"
-                };
 
-                Console.WriteLine("Добавлен новый элемент в тасклист:");
-                DataTable data = new DataTable();
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-                adapter.Fill(data);
+                string sql = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")";
+                using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
+                {
+                    connection.Open();
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine($"Ошибка доступа к базе данных. Исключение: {ex.Message}");
             }
-            Console.Read();
         }
-        static void Delite()
+        void delete()
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=C:\\Users\\1\\Documents\\GitHub\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False");
-                connection.Open();
-                Console.WriteLine("Connected!");
-                command = new SQLiteCommand(connection)
+                string sql = "DELETE FROM \"tasks\" WHERE \"ID\" = 21";
+                using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
-                    CommandText = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")"
-                };
-                Console.WriteLine("Добавлен новый элемент в тасклист:");
-                DataTable data = new DataTable();
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-                adapter.Fill(data);
+                    connection.Open();
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine($"Ошибка доступа к базе данных. Исключение: {ex.Message}");
             }
-            Console.Read();
         }
     }
 }
+
