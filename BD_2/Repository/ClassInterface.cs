@@ -10,12 +10,13 @@ namespace BD_2
 {
     class ClassInterface : Interface
     {
-        private const string ConnectionString = "Data Source=C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\BD\\Tasklist.db; FailIfMissing=False";
-        void create()
+
+        private const string ConnectionString = "Data Source = C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\BD\\Tasklist.db";
+        public void create(string name, string more)
         {
             try
             {
-                string sql = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")";
+                string sql = $"INSERT INTO \"tasks\" VALUES(NULL, \"{name}\", \"{more}\")";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();
@@ -30,11 +31,11 @@ namespace BD_2
             }
 
         }
-        void read()
+        public void read()
         {
             try
             {
-                string sql = "INSERT INTO \"tasks\" VALUES(NULL, \"сходить с федей в бар\", \"и пк\")";
+                string sql = "SELECT * FROM \"tasks\"";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();
@@ -42,11 +43,14 @@ namespace BD_2
                     {
                         using (SQLiteDataReader rdr = cmd.ExecuteReader())
                         {
-                            object id = rdr.GetValue(0);
-                            object name = rdr.GetValue(1);
-                            object more_details = rdr.GetValue(2);
+                            while (rdr.Read())
+                            {
+                                object id = rdr.GetValue(0);
+                                object name = rdr.GetValue(1);
+                                object more_details = rdr.GetValue(2);
 
-                            Console.WriteLine("{0} \t{1} \t{2}", id, name, more_details);
+                                Console.WriteLine("{0} \t{1} \t{2}", id, name, more_details);
+                            }
                         }
                     }
                 }
@@ -57,12 +61,12 @@ namespace BD_2
             }
             Console.Read();
         }
-        void Update()
+        public void Update(int id, string name)
         {
             try
             {
 
-                string sql = "UPDATE \"tasks\"SET name = \"сходить в зал\"WHERE id = 23;";
+                string sql = $"UPDATE \"tasks\"SET name = \"{name}\"WHERE id = {id};";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();
@@ -77,11 +81,11 @@ namespace BD_2
             {
             }
         }
-        void delete()
+        public void delete(int id)
         {
             try
             {
-                string sql = "DELETE FROM \"tasks\" WHERE \"ID\" = 21";
+                string sql = $"DELETE FROM \"tasks\" WHERE \"ID\" = {id}";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();

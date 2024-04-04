@@ -9,8 +9,8 @@ namespace BD_2
     interface Interface
     {
         void delete(int id){}
-        void create(T odj) { }
-        void update(T odj) { }
+        void create(string name, string more) { }
+        void update(int id, string name) { }
         void read() { }
     }
 }
