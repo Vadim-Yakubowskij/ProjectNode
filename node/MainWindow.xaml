@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:node"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="812" Width="375">
+    <Grid Background="#D3D3D3" Cursor="Hand">
+        <Border x:Name="DataTimeBorder" MinWidth="200" Margin="76,10,10,0" Background="#5F9EA0" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20" Height="60">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#C0C0C0" ShadowDepth="0"/>
+            </Border.Effect>
+        </Border>
+        <Border x:Name="MenuBorder" MinWidth="2" Margin="10,10,305,0" Background="#5F9EA0" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="60">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#C0C0C0" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+
+            </StackPanel>
+        </Border>
+        <Button Margin="301,24,29,740" BorderBrush="#B0E0E6" Background="#B0E0E6" Padding="0">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\elements\eeee.png" Width="22" Height="22"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>
