@@ -5,25 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:node"
         mc:Ignorable="d"
-        Title="MainWindow" Height="812" Width="375">
-    <Grid Background="#D3D3D3" Cursor="Hand">
-        <Border x:Name="DataTimeBorder" MinWidth="200" Margin="76,10,10,0" Background="#5F9EA0" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20" Height="60">
+        Title="Задачник" Height="812" Width="375" WindowStyle="None">
+    <Grid Background="#6E6E6E" Cursor="">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="48*"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="DataTimeBorder_Copy" MinWidth="200" Margin="10,728,10,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20" Height="74" Grid.ColumnSpan="2">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="15" Color="#C0C0C0" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
             </Border.Effect>
         </Border>
-        <Border x:Name="MenuBorder" MinWidth="2" Margin="10,10,305,0" Background="#5F9EA0" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="60">
+        <Border x:Name="DataTimeBorder" MinWidth="200" Margin="-234,-70,-59,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="100" Height="264" Grid.ColumnSpan="2">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="15" Color="#C0C0C0" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
             </Border.Effect>
-            <StackPanel>
-
-            </StackPanel>
         </Border>
-        <Button Margin="301,24,29,740" BorderBrush="#B0E0E6" Background="#B0E0E6" Padding="0">
+        <Border x:Name="MenuBorder" MinWidth="2" Margin="36,734,131,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="62">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel/>
+        </Border>
+        <Button Margin="48,749,143,31" BorderBrush="#BCFD4C" Background="#BCFD4C" Padding="0">
             <StackPanel Orientation="Horizontal">
-                <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\elements\eeee.png" Width="22" Height="22"/>
+                <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\elements\eeee.png" Width="25" Height="30"/>
             </StackPanel>
         </Button>
+        <Border x:Name="MenuBorder_Copy" MinWidth="2" Margin="51,734,29,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="62" Grid.Column="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel/>
+        </Border>
+        <Button Margin="64,749,42,31" BorderBrush="#BCFD4C" Background="#BCFD4C" Padding="0" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\elements\plus.png" Width="25" Height="30"/>
+            </StackPanel>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="10,153,0,0" TextWrapping="Wrap" Text="ДД.ММ.ГГ" VerticalAlignment="Top" Height="28" Width="133" FontFamily="Arial Black" FontSize="20"/>
+        <Border x:Name="DataTimeBorder_Copy1" MinWidth="200" Margin="10,199,10,0" Background="#9ACD32" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="50" Height="524" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
+            </Border.Effect>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="34,241,0,0" TextWrapping="Wrap" Text="инфо" VerticalAlignment="Top" Height="43" Width="120" FontFamily="Arial Black" FontSize="36"/>
     </Grid>
 </Window>
