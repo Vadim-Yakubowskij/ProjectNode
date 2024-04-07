@@ -5,50 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:node"
         mc:Ignorable="d"
-        Title="Задачник" Height="812" Width="375" WindowStyle="None">
+        Title="Задачник" Height="900" Width="450" WindowStyle="None">
     <Grid Background="#6E6E6E" Cursor="">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="77*"/>
             <ColumnDefinition Width="48*"/>
         </Grid.ColumnDefinitions>
-        <Border x:Name="DataTimeBorder_Copy" MinWidth="200" Margin="10,728,10,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20" Height="74" Grid.ColumnSpan="2">
+        <Border x:Name="DataTimeBorder_Copy" MinWidth="200" Margin="10,795,10,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20" Height="87" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
             </Border.Effect>
         </Border>
-        <Border x:Name="DataTimeBorder" MinWidth="200" Margin="-234,-70,-59,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="100" Height="264" Grid.ColumnSpan="2">
+        <Border x:Name="DataTimeBorder" MinWidth="200" Margin="-234,-97,-132,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="100" Height="264" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
             </Border.Effect>
         </Border>
-        <Border x:Name="MenuBorder" MinWidth="2" Margin="36,734,131,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="62">
+        <Border x:Name="MenuBorder" MinWidth="2" Margin="34,805,152,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="71">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel/>
         </Border>
-        <Button Margin="48,749,143,31" BorderBrush="#BCFD4C" Background="#BCFD4C" Padding="0">
+        <Button Margin="60,824,0,44" BorderBrush="#BCFD4C" Background="#BCFD4C" Padding="0" HorizontalAlignment="Left" Width="40">
             <StackPanel Orientation="Horizontal">
                 <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\elements\eeee.png" Width="25" Height="30"/>
             </StackPanel>
         </Button>
-        <Border x:Name="MenuBorder_Copy" MinWidth="2" Margin="51,734,29,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="62" Grid.Column="1">
+        <Border x:Name="MenuBorder_Copy" MinWidth="2" Margin="58,805,29,0" Background="#BCFD4C" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="500" Height="71" Grid.Column="1">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel/>
         </Border>
-        <Button Margin="64,749,42,31" BorderBrush="#BCFD4C" Background="#BCFD4C" Padding="0" Grid.Column="1">
+        <Button Margin="83,824,50,44" BorderBrush="#BCFD4C" Background="#BCFD4C" Padding="0" Grid.Column="1">
             <StackPanel Orientation="Horizontal">
                 <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\elements\plus.png" Width="25" Height="30"/>
             </StackPanel>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="10,153,0,0" TextWrapping="Wrap" Text="ДД.ММ.ГГ" VerticalAlignment="Top" Height="28" Width="133" FontFamily="Arial Black" FontSize="20"/>
-        <Border x:Name="DataTimeBorder_Copy1" MinWidth="200" Margin="10,199,10,0" Background="#9ACD32" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="50" Height="524" Grid.ColumnSpan="2">
+        <TextBlock HorizontalAlignment="Left" Margin="34,127,0,0" TextWrapping="Wrap" Text="ДД.ММ.ГГ" VerticalAlignment="Top" Height="28" Width="132" FontFamily="Arial Black" FontSize="20"/>
+        <Border x:Name="DataTimeBorder_Copy1" MinWidth="200" Margin="10,185,10,0" Background="#9ACD32" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="50" Height="524" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15" Color="#808080" ShadowDepth="0"/>
             </Border.Effect>
+            <ScrollViewer>
+                <StackPanel Height="1190">
+                    <ListBox x:Name="MenuPanel"
+                                 ItemsSource="{Binding Lists}"
+                                 SelectedItem="{Binding SelectedList}"
+                                 Style="{StaticResource ListTheme}"
+                                 GotFocus="MenuButton_Click"
+                                 
+                                 ItemContainerStyle="{StaticResource ListBoxItemTheme}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                               Style="{StaticResource MenuButtonTheme}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
         </Border>
-        <TextBlock HorizontalAlignment="Left" Margin="34,241,0,0" TextWrapping="Wrap" Text="инфо" VerticalAlignment="Top" Height="43" Width="120" FontFamily="Arial Black" FontSize="36"/>
     </Grid>
 </Window>
