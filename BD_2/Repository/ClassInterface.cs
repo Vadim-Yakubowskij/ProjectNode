@@ -56,10 +56,17 @@ namespace BD_2
                         {
                             while (rdr.Read())
                             {
-                                int index = 0;
-                                object id = rdr.GetInt32(index++);
-                                object name = rdr.GetString(index++);
-                                object more_details = rdr.GetString(index++);
+                                int index = 0; int id = rdr.GetInt32(index++);
+                                string name = rdr.GetString(index++);
+                                string more_details;
+                                if (!rdr.IsDBNull(index))
+                                {
+                                    more_details = rdr.GetString(index++);
+                                }
+                                else
+                                {
+                                    more_details = String.Empty;
+                                }
 
                                 Console.WriteLine("{0} \t{1} \t{2}", id, name, more_details);
                             }

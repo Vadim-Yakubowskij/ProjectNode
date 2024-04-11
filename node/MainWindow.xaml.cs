@@ -20,9 +20,16 @@ namespace node
     /// </summary>
     public partial class MainWindow : Window
     {
+        TododoViewModel vm = new TododoViewModel();
         public MainWindow()
         {
+            DataContext = vm;
             InitializeComponent();
+        }
+
+        private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

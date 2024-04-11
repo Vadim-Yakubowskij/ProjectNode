@@ -17,13 +17,14 @@
             </Border.Effect>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Tasks" FontSize="70" FontWeight="Bold"/>
-                <Grid Margin="750 0 0 0">
+                <Grid Margin="1100 0 0 0">
                     <StackPanel Orientation="Horizontal">
-                        <Button HorizontalAlignment="Right" Content="BY" FontSize="30" Margin="20" Height="70" Width="90"/>
-                        <Button HorizontalAlignment="Right" Content="BY" FontSize="30"  Margin="20" Height="70" Width="90"/>
-                        <Button HorizontalAlignment="Right" Content="BY" FontSize="30"  Margin="20" Height="70" Width="90"/>
-                        <Button HorizontalAlignment="Right" Content="BY" FontSize="30"  Margin="20" Height="70" Width="90"/>
-                        <Button HorizontalAlignment="Right" Content="BY" FontSize="30" Margin="20" Height="70" Width="90"/>
+                        <Button x:Name="AddButton" HorizontalAlignment="Right"  FontSize="30" Margin="20" Height="70" Width="90" Background="#FAEBD7" BorderBrush="#FAEBD7">
+                            <Image Source="C:\Users\1\Documents\GitHub\node1\node\elements\plus.png"></Image>
+                        </Button>
+                        <Button x:Name="MenuButton" HorizontalAlignment="Right"  FontSize="30"  Margin="20" Height="70" Width="90" Background="#FAEBD7" BorderBrush="#FAEBD7">
+                            <Image Source="C:\Users\1\Documents\GitHub\node1\node\elements\eeee.png"></Image>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -32,6 +33,18 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="Gray"/>
             </Border.Effect>
+            <ListBox x:Name="MenuPanel"
+                                 ItemsSource="{Binding Lists}"
+                                 SelectedItem="{Binding SelectedTask}"
+                                 Style="{StaticResource ListTheme}"
+                                 MouseDown="MenuPanel_MouseDown"
+                                 ItemContainerStyle="{StaticResource ListBoxItemTheme}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"  />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Border>
         <Border x:Name="Info" MinWidth="300" Margin="1228,220,50,0" Background="#FAEBD7" Padding="20" VerticalAlignment="Top" MaxWidth="1400" CornerRadius="35" Height="598" Grid.ColumnSpan="2">
             <Border.Effect>
