@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Новая папка\**" />
+    <EmbeddedResource Remove="Новая папка\**" />
+    <None Remove="Новая папка\**" />
+    <Page Remove="Новая папка\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="Stub.System.Data.SQLite.Core.NetFramework" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
@@ -17,12 +24,11 @@
 
   <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="Новая папка\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BD_2\BD_2.csproj" />
-    <ProjectReference Include="..\node1.csproj" />
+    <ProjectReference Include="..\BD_2\DataBase.csproj" />
+    <ProjectReference Include="..\Node.csproj" />
   </ItemGroup>
 
 </Project>
