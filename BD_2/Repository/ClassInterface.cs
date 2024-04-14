@@ -13,7 +13,7 @@ namespace BD_2
 {
     class ClassInterface : Interface
     {
-        private string ConnectionString = "Data Source = C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\BD\\Tasklist.db";
+        private string ConnectionString = "Data Source = C:\\Users\\1\\Documents\\GitHub\\ProjectNode\\BD_2\\BD\\Tasklist.db";
         public ClassInterface()
         {
             string relativePath = @"BD\Tasklist.db";
@@ -27,7 +27,7 @@ namespace BD_2
         {
             try
             {
-                string sql = $"INSERT INTO \"tasks\" VALUES(NULL, \"{name}\", \"{more}\")";
+                string sql = $"INSERT INTO \"tasks\" VALUES(NULL, \"{name}\", \"{more}\",\"не выполнено\")";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();

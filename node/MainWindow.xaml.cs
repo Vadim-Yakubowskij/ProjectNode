@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI;
 
 namespace node
 {
@@ -19,7 +20,9 @@ namespace node
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
+    
     {
+        public static AddWin AddWindow;
         TododoViewModel vm = new TododoViewModel();
         public MainWindow()
         {
@@ -28,6 +31,33 @@ namespace node
         }
 
         private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(AddWindow == null)
+            {
+                AddWindow = new AddWin();
+                AddWindow.Show();
+            }
+            else
+            {
+                AddWindow.Activate();
+            }
+        }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MoveRight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MoveLeft_Click(object sender, RoutedEventArgs e)
         {
 
         }
