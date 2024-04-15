@@ -49,7 +49,7 @@
                                 Width="63"
                                 Height="40"
                                 RenderTransformOrigin="0.5,0.5"
-                                Source="C:\Users\1\Documents\GitHub\ProjectNode\node\elements\Righht.png">
+                                Source="\elements\Righht.png">
                                 <Image.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleX="-1" />
@@ -71,7 +71,7 @@
                             BorderBrush="#FAEBD7"
                             Click="MoveRight_Click"
                             FontSize="30">
-                            <Image Source="C:\Users\1\Documents\GitHub\ProjectNode\node\elements\Righht.png" Height="35" Width="45" />
+                            <Image Source="\elements\Righht.png" Height="35" Width="45" />
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -88,7 +88,7 @@
                             BorderBrush="#FAEBD7"
                             Click="AddButton_Click"
                             FontSize="30">
-                            <Image Source="C:\Users\1\Documents\GitHub\node1\node\elements\plus.png" />
+                            <Image Source="\elements\plus.png" />
                         </Button>
                         <Button
                             x:Name="MenuButton"
@@ -100,7 +100,7 @@
                             BorderBrush="#FAEBD7"
                             Click="MenuButton_Click"
                             FontSize="30">
-                            <Image Source="C:\Users\1\Documents\GitHub\node1\node\elements\eeee.png" />
+                            <Image Source="\elements\eeee.png" />
                         </Button>
                     </StackPanel>
                 </Grid>
