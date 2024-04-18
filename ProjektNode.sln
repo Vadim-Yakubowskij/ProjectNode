@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Node", "Node.csproj", "{55541715-AE45-4B08-8089-7F9D4082E361}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "node\UI.csproj", "{8E4A81ED-7E19-4153-A731-2851521DE2E2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBase", "BD_2\DataBase.csproj", "{9A3208AA-16CC-4BAA-8943-C06ADBD4F703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\ConsoleApp1\ConsoleApp1.csproj", "{0A8D3383-1BA4-49D3-B56F-E2444AAF548B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9A3208AA-16CC-4BAA-8943-C06ADBD4F703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A3208AA-16CC-4BAA-8943-C06ADBD4F703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A3208AA-16CC-4BAA-8943-C06ADBD4F703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A8D3383-1BA4-49D3-B56F-E2444AAF548B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A8D3383-1BA4-49D3-B56F-E2444AAF548B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A8D3383-1BA4-49D3-B56F-E2444AAF548B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A8D3383-1BA4-49D3-B56F-E2444AAF548B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

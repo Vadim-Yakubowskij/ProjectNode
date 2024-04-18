@@ -54,12 +54,12 @@ namespace node
 
         private void MoveRight_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void MoveLeft_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        
     }
 }

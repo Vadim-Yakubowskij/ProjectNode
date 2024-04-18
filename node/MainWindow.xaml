@@ -44,6 +44,7 @@
                             Background="#FAEBD7"
                             BorderBrush="#FAEBD7"
                             Click="MoveLeft_Click"
+                            Command="{Binding PrevWeekCommand}"
                             FontSize="30">
                             <Image
                                 Width="63"
@@ -60,7 +61,10 @@
                                 </Image.RenderTransform>
                             </Image>
                         </Button>
-                        <TextBlock FontSize="70" Text="DataTime" />
+                        <TextBlock
+                            x:Name="DataTimee"
+                            FontSize="45"
+                            Text="{Binding DataTimee}" />
                         <Button
                             x:Name="MoveRight"
                             Width="90"
@@ -70,8 +74,12 @@
                             Background="#FAEBD7"
                             BorderBrush="#FAEBD7"
                             Click="MoveRight_Click"
+                            Command="{Binding NextWeekCommand}"
                             FontSize="30">
-                            <Image Source="\elements\Righht.png" Height="35" Width="45" />
+                            <Image
+                                Width="63"
+                                Height="40"
+                                Source="\elements\Righht.png" />
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -119,19 +127,106 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="Gray" />
             </Border.Effect>
-            <ListBox
-                x:Name="MenuPanel"
-                ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                ItemsSource="{Binding Lists}"
-                MouseDown="MenuPanel_MouseDown"
-                SelectedItem="{Binding SelectedTask}"
-                Style="{StaticResource ListTheme}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}" />
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <StackPanel Orientation="Horizontal">
+                <ListBox
+                    x:Name="MenuPanel"
+                    HorizontalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                    ItemsSource="{Binding Lists}"
+                    MouseDown="MenuPanel_MouseDown"
+                    SelectedItem="{Binding SelectedTask}"
+                    Style="{StaticResource ListTheme}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox
+                    x:Name="MenuPanel1"
+                    HorizontalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                    ItemsSource="{Binding Lists}"
+                    MouseDown="MenuPanel_MouseDown"
+                    SelectedItem="{Binding SelectedTask}"
+                    Style="{StaticResource ListTheme}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox
+                    x:Name="MenuPanel2"
+                    HorizontalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                    ItemsSource="{Binding Lists}"
+                    MouseDown="MenuPanel_MouseDown"
+                    SelectedItem="{Binding SelectedTask}"
+                    Style="{StaticResource ListTheme}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox
+                    x:Name="MenuPanel3"
+                    HorizontalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                    ItemsSource="{Binding Lists}"
+                    MouseDown="MenuPanel_MouseDown"
+                    SelectedItem="{Binding SelectedTask}"
+                    Style="{StaticResource ListTheme}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox
+                    x:Name="MenuPanel4"
+                    HorizontalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                    ItemsSource="{Binding Lists}"
+                    MouseDown="MenuPanel_MouseDown"
+                    SelectedItem="{Binding SelectedTask}"
+                    Style="{StaticResource ListTheme}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox
+                    x:Name="MenuPanel5"
+                    HorizontalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                    ItemsSource="{Binding Lists}"
+                    MouseDown="MenuPanel_MouseDown"
+                    SelectedItem="{Binding SelectedTask}"
+                    Style="{StaticResource ListTheme}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox
+                    x:Name="MenuPanel6"
+                    HorizontalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                    ItemsSource="{Binding Lists}"
+                    MouseDown="MenuPanel_MouseDown"
+                    SelectedItem="{Binding SelectedTask}"
+                    Style="{StaticResource ListTheme}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
         </Border>
         <Border
             x:Name="Info"
