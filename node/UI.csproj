@@ -16,6 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="eeee.png" />
+    <None Remove="Left.png" />
+    <None Remove="plus.png" />
+    <None Remove="Righht.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="Stub.System.Data.SQLite.Core.NetFramework" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
@@ -31,6 +38,13 @@
   <ItemGroup>
     <ProjectReference Include="..\BD_2\DataBase.csproj" />
     <ProjectReference Include="..\Node.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="eeee.png" />
+    <Resource Include="Left.png" />
+    <Resource Include="plus.png" />
+    <Resource Include="Righht.png" />
   </ItemGroup>
 
 </Project>

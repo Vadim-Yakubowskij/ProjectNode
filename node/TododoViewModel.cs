@@ -35,19 +35,25 @@ namespace node
                 new TaskList(
                     Lists
                     ),
-                 new TaskList(
-                Lists
-                    ),
-                  new TaskList(
-                Lists
-                    ),
-                   new TaskList(
+                    new TaskList(
                 Lists
                     ),
                     new TaskList(
                 Lists
                     ),
-                     new TaskList(
+                    new TaskList(
+                Lists
+                    ),
+                    new TaskList(
+                Lists
+                    ),
+                    new TaskList(
+                Lists
+                    ),
+                    new TaskList(
+                Lists
+                    ),
+                    new TaskList(
                 Lists
                     ),
             };
