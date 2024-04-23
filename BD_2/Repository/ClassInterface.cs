@@ -13,7 +13,7 @@ namespace BD_2
 {
     class ClassInterface : Interface
     {
-        private string ConnectionString = "Data Source = C:\\Users\\1\\Documents\\GitHub\\ProjectNode\\BD_2\\BD\\Tasklist.db";
+        private string ConnectionString = "Data Source = C:\\Users\\Вадим\\OneDrive\\Документы\\GitHub\\ProjectNode\\BD_2\\DB\\Tasklist.db";
         public ClassInterface()
         {
             string relativePath = @"BD\Tasklist.db";
@@ -27,7 +27,7 @@ namespace BD_2
         {
             try
             {
-                string sql = $"INSERT INTO \"tasks\" VALUES(NULL, \"{name}\", \"{more}\",\"не выполнено\")";
+                string sql = $"INSERT INTO \"tasks\" (date_time,name,more_details,isCompelited) VALUES (date('now'), \"{name}\", \"{more}\",\"не выполнено\")";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();
@@ -56,7 +56,9 @@ namespace BD_2
                         {
                             while (rdr.Read())
                             {
-                                int index = 0; int id = rdr.GetInt32(index++);
+                                int index = 0;
+                                int id = rdr.GetInt32(index++);
+                                string date_time = rdr.GetString(index++);
                                 string name = rdr.GetString(index++);
                                 string more_details;
                                 if (!rdr.IsDBNull(index))
@@ -68,7 +70,7 @@ namespace BD_2
                                     more_details = String.Empty;
                                 }
 
-                                Console.WriteLine("{0} \t{1} \t{2}", id, name, more_details);
+                                Console.WriteLine("{0} \t{1} \t{2} \t{3}", id, date_time, name, more_details);
                             }
                         }
                     }
