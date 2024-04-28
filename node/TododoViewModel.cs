@@ -47,21 +47,26 @@ namespace node
 
         public TododoViewModel()
         {
-
-            TasklistRepository = new TaskRepository();
-            TaskListMonday =  new ObservableCollection<Task>(TasklistRepository.read());
-            TaskListThursday = new ObservableCollection<Task>(TasklistRepository.read());
-            TaskListWensday = new ObservableCollection<Task>(TasklistRepository.read());
-            TaskListFriday = new ObservableCollection<Task>(TasklistRepository.read());
-            TaskListSaturday = new ObservableCollection<Task>(TasklistRepository.read());
-            TaskListSunday = new ObservableCollection<Task>(TasklistRepository.read());
-            TaskListTuesday =  new ObservableCollection<Task>(TasklistRepository.read());
             DateTime today = DateTime.Today;
             _datePointer = DateTime.Today;
             int day = today.Day;
             int month = today.Month;
             int year = today.Year;
             DataTimee = GetCurrentWeekDay($"{day:00}.{month:00}.{year:00}");
+            //
+            string monday = DataTimee.Split(" - ",StringSplitOptions.None)[0];
+            string sunday = DataTimee.Split(" - ", StringSplitOptions.None)[1];
+
+            TasklistRepository = new TaskRepository();
+            List<Task> tmp = TasklistRepository.read().Where(x=> x.Date_time.Split('-').Skip(1));
+            TaskListMonday =  new ObservableCollection<Task>();
+            TaskListThursday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListWensday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListFriday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListSaturday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListSunday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListTuesday =  new ObservableCollection<Task>(TasklistRepository.read());
+            
         }
         public string GetCurrentWeekDay(string inputDate)
          {
