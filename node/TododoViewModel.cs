@@ -6,18 +6,33 @@ using System.Linq;
 using System.Text;
 using node1;
 
+using DataBase.Repository;
+using Task = DataBase.Repository.Task;
+
 namespace node
 {
     class TododoViewModel : ObservableObject
     {
-        private ObservableCollection<TaskList> _listsList = new ObservableCollection<TaskList>(new List<TaskList> {});
+        private ObservableCollection<Task> _taskListSunday;
+        public ObservableCollection<Task> TaskListSunday { get => _taskListSunday; set { _taskListSunday = value; OnPropertyChanged("TaskListSunday"); } }
 
-        public ObservableCollection<TaskList> ListsList { get => _listsList; set { _listsList = value; OnPropertyChanged("ListsList"); } }
+        private ObservableCollection<Task> _taskListMonday;
+        public ObservableCollection<Task> TaskListMonday { get => _taskListMonday; set { _taskListMonday = value; OnPropertyChanged("TaskListMonday"); } }
 
-        private ObservableCollection<Task> _lists = new ObservableCollection<Task>(new List<Task> {Randomizer.RandomTask(), Randomizer.RandomTask(), Randomizer.RandomTask(), Randomizer.RandomTask(), Randomizer.RandomTask() });
+        private ObservableCollection<Task> _taskListTuesday;
+        public ObservableCollection<Task> TaskListTuesday { get => _taskListTuesday; set { _taskListTuesday = value; OnPropertyChanged("TaskListTuesday"); } }
 
-        public ObservableCollection<Task> Lists { get => _lists; set { _lists = value; OnPropertyChanged("Lists"); } }
+        private ObservableCollection<Task> _taskListWensday;
+        public ObservableCollection<Task> TaskListWensday { get => _taskListWensday; set { _taskListWensday = value; OnPropertyChanged("TaskListWensday"); } }
 
+        private ObservableCollection<Task> _taskListThursday;
+        public ObservableCollection<Task> TaskListThursday { get => _taskListThursday; set { _taskListThursday = value; OnPropertyChanged("TaskListThursday"); } }
+
+        private ObservableCollection<Task> _taskListFriday;
+        public ObservableCollection<Task> TaskListFriday { get => _taskListFriday; set { _taskListFriday = value; OnPropertyChanged("TaskListFriday"); } }
+
+        private ObservableCollection<Task> _taskListSaturday;
+        public ObservableCollection<Task> TaskListSaturday { get => _taskListSaturday; set { _taskListSaturday = value; OnPropertyChanged("TaskListSaturday"); } }
         public Task SelectedTask { get => _selectedTask; set { _selectedTask = value; OnPropertyChanged("SelectedTask"); } }
 
         public string DataTimee { get => _dataTimee; set { _dataTimee = value; OnPropertyChanged("DataTimee"); } }
@@ -27,36 +42,20 @@ namespace node
         private string _dataTimee;
 
         private DateTime _datePointer;
+        private TaskRepository _tasklistRepository;
+        private TaskRepository TasklistRepository { get => _tasklistRepository; set => _tasklistRepository = value; }
 
         public TododoViewModel()
         {
-            ListsList = new ObservableCollection<TaskList>()
-            {
-                new TaskList(
-                    Lists
-                    ),
-                    new TaskList(
-                Lists
-                    ),
-                    new TaskList(
-                Lists
-                    ),
-                    new TaskList(
-                Lists
-                    ),
-                    new TaskList(
-                Lists
-                    ),
-                    new TaskList(
-                Lists
-                    ),
-                    new TaskList(
-                Lists
-                    ),
-                    new TaskList(
-                Lists
-                    ),
-            };
+
+            TasklistRepository = new TaskRepository();
+            TaskListMonday =  new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListThursday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListWensday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListFriday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListSaturday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListSunday = new ObservableCollection<Task>(TasklistRepository.read());
+            TaskListTuesday =  new ObservableCollection<Task>(TasklistRepository.read());
             DateTime today = DateTime.Today;
             _datePointer = DateTime.Today;
             int day = today.Day;
@@ -124,6 +123,7 @@ namespace node
                     }));
             }
         }
+
     }
 
 

@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Security.Policy;
 using System.Configuration;
 
-namespace BD_2
+namespace DataBase.Repository
 {
-    class ClassInterface : Interface
+    public class TaskRepository : Interface
     {
-        private string ConnectionString = "Data Source = C:\\Users\\Вадим\\OneDrive\\Документы\\GitHub\\ProjectNode\\BD_2\\DB\\Tasklist.db";
-        public ClassInterface()
+        private string ConnectionString = "Data Source = C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\DB\\Tasklist.db; Version=3; FailIfMissing=False";
+        public TaskRepository()
         {
-            string relativePath = @"BD\Tasklist.db";
-            string parentDir = Path.GetDirectoryName(AppContext.BaseDirectory);
-            string tmp = parentDir.Remove(parentDir.Length - 16, 16);
-            string absolutePath = Path.Combine(tmp, relativePath);
-            ConnectionString = string.Format("Data Source = {0};Version=3; FailIfMissing=False", absolutePath,true);
+            //string relativePath = @"DB\Tasklist.db";
+            //string parentDir = Path.GetDirectoryName(AppContext.BaseDirectory);
+            //string tmp = parentDir.Remove(parentDir.Length - 15, 15);
+            //string absolutePath = Path.Combine(tmp, relativePath);
+            //ConnectionString = string.Format("Data Source = {0};Version=3; FailIfMissing=False", absolutePath,true);
         }
         
         public void create(string name, string more)
@@ -39,11 +38,13 @@ namespace BD_2
             }
             catch (SQLiteException ex)
             {
+                Console.WriteLine($"Ошибка доступа к базе данных. Исключение: {ex.Message}");
             }
 
         }
-        public void read()
+        public List<Task> read()
         {
+            List<Task> taskList = new List<Task>();
             try
             {
                 string sql = "SELECT * FROM \"tasks\"";
@@ -69,8 +70,7 @@ namespace BD_2
                                 {
                                     more_details = String.Empty;
                                 }
-
-                                Console.WriteLine("{0} \t{1} \t{2} \t{3}", id, date_time, name, more_details);
+                                taskList.Add(new Task(id, date_time, name, more_details));
                             }
                         }
                     }
@@ -78,9 +78,9 @@ namespace BD_2
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine($"Ошибка доступа к базе данных. Исключение: {ex.Message}");
+                throw ex;
             }
-            Console.Read();
+            return taskList;
         }
         public void Update(int id, string name)
         {

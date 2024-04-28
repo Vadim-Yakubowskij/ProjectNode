@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BD_2
+namespace DataBase.Repository
 {
     interface Interface
     {

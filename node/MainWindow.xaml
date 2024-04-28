@@ -79,7 +79,7 @@
                             <Image
                                 Width="63"
                                 Height="40"
-                                Source="/Righht.png"/>
+                                Source="/Righht.png" />
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -132,13 +132,17 @@
                     x:Name="MenuPanel"
                     HorizontalAlignment="Stretch"
                     ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                    ItemsSource="{Binding Lists}"
+                    ItemsSource="{Binding TaskListMonday}"
                     MouseDown="MenuPanel_MouseDown"
                     SelectedItem="{Binding SelectedTask}"
                     Style="{StaticResource ListTheme}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" Text="{Binding Name}" />
+                                <TextBlock Margin="5" Text="{Binding More_details}" />
+                                <TextBlock Margin="5" Text="{Binding Date_time}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -146,13 +150,17 @@
                     x:Name="MenuPanel1"
                     HorizontalAlignment="Stretch"
                     ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                    ItemsSource="{Binding Lists}"
+                    ItemsSource="{Binding TaskListTuesday}"
                     MouseDown="MenuPanel_MouseDown"
                     SelectedItem="{Binding SelectedTask}"
                     Style="{StaticResource ListTheme}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" Text="{Binding Name}" />
+                                <TextBlock Margin="5" Text="{Binding More_details}" />
+                                <TextBlock Margin="5" Text="{Binding Date_time}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -160,13 +168,17 @@
                     x:Name="MenuPanel2"
                     HorizontalAlignment="Stretch"
                     ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                    ItemsSource="{Binding Lists}"
+                    ItemsSource="{Binding TaskListWensday}"
                     MouseDown="MenuPanel_MouseDown"
                     SelectedItem="{Binding SelectedTask}"
                     Style="{StaticResource ListTheme}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" Text="{Binding Name}" />
+                                <TextBlock Margin="5" Text="{Binding More_details}" />
+                                <TextBlock Margin="5" Text="{Binding Date_time}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -174,13 +186,17 @@
                     x:Name="MenuPanel3"
                     HorizontalAlignment="Stretch"
                     ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                    ItemsSource="{Binding Lists}"
+                    ItemsSource="{Binding TaskListThursday}"
                     MouseDown="MenuPanel_MouseDown"
                     SelectedItem="{Binding SelectedTask}"
                     Style="{StaticResource ListTheme}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" Text="{Binding Name}" />
+                                <TextBlock Margin="5" Text="{Binding More_details}" />
+                                <TextBlock Margin="5" Text="{Binding Date_time}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -188,13 +204,17 @@
                     x:Name="MenuPanel4"
                     HorizontalAlignment="Stretch"
                     ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                    ItemsSource="{Binding Lists}"
+                    ItemsSource="{Binding TaskListFriday}"
                     MouseDown="MenuPanel_MouseDown"
                     SelectedItem="{Binding SelectedTask}"
                     Style="{StaticResource ListTheme}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" Text="{Binding Name}" />
+                                <TextBlock Margin="5" Text="{Binding More_details}" />
+                                <TextBlock Margin="5" Text="{Binding Date_time}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -202,13 +222,17 @@
                     x:Name="MenuPanel5"
                     HorizontalAlignment="Stretch"
                     ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                    ItemsSource="{Binding Lists}"
+                    ItemsSource="{Binding TaskListSaturday}"
                     MouseDown="MenuPanel_MouseDown"
                     SelectedItem="{Binding SelectedTask}"
                     Style="{StaticResource ListTheme}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" Text="{Binding Name}" />
+                                <TextBlock Margin="5" Text="{Binding More_details}" />
+                                <TextBlock Margin="5" Text="{Binding Date_time}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -216,13 +240,17 @@
                     x:Name="MenuPanel6"
                     HorizontalAlignment="Stretch"
                     ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                    ItemsSource="{Binding Lists}"
+                    ItemsSource="{Binding TaskListSaturday}"
                     MouseDown="MenuPanel_MouseDown"
                     SelectedItem="{Binding SelectedTask}"
                     Style="{StaticResource ListTheme}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" Text="{Binding Name}" />
+                                <TextBlock Margin="5" Text="{Binding More_details}" />
+                                <TextBlock Margin="5" Text="{Binding Date_time}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
