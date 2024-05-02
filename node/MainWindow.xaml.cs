@@ -60,6 +60,12 @@ namespace node
         {
 
         }
-        
+
+        private void MenuPanel3_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+                ScrollViewer scv = (ScrollViewer)sender;
+                scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+                e.Handled = true;
+        }
     }
 }
