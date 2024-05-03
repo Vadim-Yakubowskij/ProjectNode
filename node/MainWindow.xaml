@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Задачник"
     Width="1720"
+    MinWidth="1720"
     Height="880"
+    MinHeight="880"
     WindowStyle="ThreeDBorderWindow"
     mc:Ignorable="d">
     <Grid Background="#FFDEAD" Cursor="">
@@ -117,8 +119,9 @@
         <Border
             x:Name="Task"
             Height="598"
-            MinWidth="600"
-            MaxWidth="1400"
+            MinHeight="598"
+            Width="1117"
+            MaxWidth="1117"
             Margin="50,220,39,0"
             Padding="20"
             VerticalAlignment="Top"
@@ -129,31 +132,43 @@
             </Border.Effect>
 
             <StackPanel Orientation="Horizontal">
-                <StackPanel Margin="30,0,0,0">
+                <Grid Margin="30,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <TextBlock
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
                         Text="Понедельник" />
-                    <ScrollViewer>
-                        <ListBox
-                            x:Name="MenuPanel"
-                            HorizontalAlignment="Stretch"
+                    <ScrollViewer
+                        Grid.Row="1"
+                        PreviewMouseWheel="MenuPanel3_PreviewMouseWheel"
+                        VerticalScrollBarVisibility="Auto">
+                        <ListView
+                            x:Name="MenuPanel1"
                             ItemContainerStyle="{StaticResource ListBoxItemTheme}"
                             ItemsSource="{Binding TaskListMonday}"
                             MouseDown="MenuPanel_MouseDown"
                             SelectedItem="{Binding SelectedTask}"
                             Style="{StaticResource ListTheme}">
-                            <ListBox.ItemTemplate>
+                            <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Имя:" />
-                                            <TextBlock Margin="5" Text="{Binding Name}" />
+                                            <TextBlock
+                                                Margin="5"
+                                                Text="{Binding Name}"
+                                                TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
-                                            <TextBlock Margin="5" Text="{Binding More_details}" />
+                                            <TextBlock
+                                                Margin="5"
+                                                Text="{Binding More_details}"
+                                                TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Дата:" />
@@ -161,44 +176,58 @@
                                         </StackPanel>
                                     </StackPanel>
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </ScrollViewer>
-                </StackPanel>
-                <StackPanel Margin="30,0,0,0">
+                </Grid>
+                <Grid Margin="30,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <TextBlock
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
                         Text="Вторник" />
-                    <ListBox
-                        x:Name="MenuPanel1"
-                        HorizontalAlignment="Stretch"
-                        ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                        ItemsSource="{Binding TaskListTuesday}"
-                        MouseDown="MenuPanel_MouseDown"
-                        SelectedItem="{Binding SelectedTask}"
-                        Style="{StaticResource ListTheme}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Имя:" />
-                                        <TextBlock Margin="5" Text="{Binding Name}" />
+                    <ScrollViewer
+                        Grid.Row="1"
+                        PreviewMouseWheel="MenuPanel3_PreviewMouseWheel"
+                        VerticalScrollBarVisibility="Auto">
+                        <ListView
+                            x:Name="MenuPanel2"
+                            ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                            ItemsSource="{Binding TaskListTuesday}"
+                            MouseDown="MenuPanel_MouseDown"
+                            SelectedItem="{Binding SelectedTask}"
+                            Style="{StaticResource ListTheme}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Имя:" />
+                                            <TextBlock
+                                                Margin="5"
+                                                Text="{Binding Name}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Детали:" />
+                                            <TextBlock
+                                                Margin="5"
+                                                Text="{Binding More_details}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Дата:" />
+                                            <TextBlock Margin="5" Text="{Binding Date_time}" />
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Детали:" />
-                                        <TextBlock Margin="5" Text="{Binding More_details}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Дата:" />
-                                        <TextBlock Margin="5" Text="{Binding Date_time}" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
                 <Grid Margin="30,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60" />
@@ -209,33 +238,43 @@
                         FontSize="20"
                         FontWeight="Bold"
                         Text="Среда" />
-                    <ListBox
-                        x:Name="MenuPanel2"
-                        HorizontalAlignment="Stretch"
-                        ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                        ItemsSource="{Binding TaskListWednesday}"
-                        MouseDown="MenuPanel_MouseDown"
-                        SelectedItem="{Binding SelectedTask}"
-                        Style="{StaticResource ListTheme}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Имя:" />
-                                        <TextBlock Margin="5" Text="{Binding Name}" />
+                    <ScrollViewer
+                        Grid.Row="1"
+                        PreviewMouseWheel="MenuPanel3_PreviewMouseWheel"
+                        VerticalScrollBarVisibility="Auto">
+                        <ListView
+                            x:Name="MenuPanel3"
+                            ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                            ItemsSource="{Binding TaskListWednesday}"
+                            MouseDown="MenuPanel_MouseDown"
+                            SelectedItem="{Binding SelectedTask}"
+                            Style="{StaticResource ListTheme}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Имя:" />
+                                            <TextBlock
+                                                Margin="5"
+                                                Text="{Binding Name}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Детали:" />
+                                            <TextBlock
+                                                Margin="5"
+                                                Text="{Binding More_details}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Дата:" />
+                                            <TextBlock Margin="5" Text="{Binding Date_time}" />
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Детали:" />
-                                        <TextBlock Margin="5" Text="{Binding More_details}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Дата:" />
-                                        <TextBlock Margin="5" Text="{Binding Date_time}" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
                 </Grid>
                 <Grid Margin="30,0,0,0">
                     <Grid.RowDefinitions>
@@ -253,7 +292,7 @@
                         PreviewMouseWheel="MenuPanel3_PreviewMouseWheel"
                         VerticalScrollBarVisibility="Auto">
                         <ListView
-                            x:Name="MenuPanel3"
+                            x:Name="MenuPanel4"
                             ItemContainerStyle="{StaticResource ListBoxItemTheme}"
                             ItemsSource="{Binding TaskListThursday}"
                             MouseDown="MenuPanel_MouseDown"
@@ -302,7 +341,7 @@
                         PreviewMouseWheel="MenuPanel3_PreviewMouseWheel"
                         VerticalScrollBarVisibility="Auto">
                         <ListBox
-                            x:Name="MenuPanel4"
+                            x:Name="MenuPanel5"
                             HorizontalAlignment="Stretch"
                             ItemContainerStyle="{StaticResource ListBoxItemTheme}"
                             ItemsSource="{Binding TaskListFriday}"
@@ -330,82 +369,101 @@
                         </ListBox>
                     </ScrollViewer>
                 </Grid>
-                <StackPanel Margin="30,0,0,0">
+                <Grid Margin="30,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <TextBlock
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
                         Text="Суббота" />
-                    <ListBox
-                        x:Name="MenuPanel5"
-                        HorizontalAlignment="Stretch"
-                        ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                        ItemsSource="{Binding TaskListSaturday}"
-                        MouseDown="MenuPanel_MouseDown"
-                        SelectedItem="{Binding SelectedTask}"
-                        Style="{StaticResource ListTheme}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Имя:" />
-                                        <TextBlock Margin="5" Text="{Binding Name}" />
+                    <ScrollViewer
+                        Grid.Row="1"
+                        PreviewMouseWheel="MenuPanel3_PreviewMouseWheel"
+                        VerticalScrollBarVisibility="Auto">
+                        <ListBox
+                            x:Name="MenuPanel6"
+                            HorizontalAlignment="Stretch"
+                            ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                            ItemsSource="{Binding TaskListSaturday}"
+                            MouseDown="MenuPanel_MouseDown"
+                            SelectedItem="{Binding SelectedTask}"
+                            Style="{StaticResource ListTheme}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Имя:" />
+                                            <TextBlock Margin="5" Text="{Binding Name}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Детали:" />
+                                            <TextBlock Margin="5" Text="{Binding More_details}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Дата:" />
+                                            <TextBlock Margin="5" Text="{Binding Date_time}" />
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Детали:" />
-                                        <TextBlock Margin="5" Text="{Binding More_details}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Дата:" />
-                                        <TextBlock Margin="5" Text="{Binding Date_time}" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
-                <StackPanel Margin="30,0,0,0">
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Margin="30,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <TextBlock
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
                         Text="Воскресенье" />
-                    <ListBox
-                        x:Name="MenuPanel6"
-                        HorizontalAlignment="Stretch"
-                        ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                        ItemsSource="{Binding TaskListSunday}"
-                        MouseDown="MenuPanel_MouseDown"
-                        SelectedItem="{Binding SelectedTask}"
-                        Style="{StaticResource ListTheme}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Имя:" />
-                                        <TextBlock Margin="5" Text="{Binding Name}" />
+                    <ScrollViewer
+                        Grid.Row="1"
+                        PreviewMouseWheel="MenuPanel3_PreviewMouseWheel"
+                        VerticalScrollBarVisibility="Auto">
+                        <ListBox
+                            x:Name="MenuPanel7"
+                            HorizontalAlignment="Stretch"
+                            ItemContainerStyle="{StaticResource ListBoxItemTheme}"
+                            ItemsSource="{Binding TaskListSaturday}"
+                            MouseDown="MenuPanel_MouseDown"
+                            SelectedItem="{Binding SelectedTask}"
+                            Style="{StaticResource ListTheme}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Имя:" />
+                                            <TextBlock Margin="5" Text="{Binding Name}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Детали:" />
+                                            <TextBlock Margin="5" Text="{Binding More_details}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="5" Text="Дата:" />
+                                            <TextBlock Margin="5" Text="{Binding Date_time}" />
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Детали:" />
-                                        <TextBlock Margin="5" Text="{Binding More_details}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="5" Text="Дата:" />
-                                        <TextBlock Margin="5" Text="{Binding Date_time}" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </Grid>
             </StackPanel>
         </Border>
         <Border
             x:Name="Info"
             Grid.ColumnSpan="2"
             Height="598"
-            MinWidth="300"
-            MaxWidth="1400"
+            MinHeight="598"
+            MinWidth="420"
+            Width="420"
             Margin="1228,220,50,0"
             Padding="20"
             VerticalAlignment="Top"
