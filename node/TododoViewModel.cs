@@ -33,7 +33,11 @@ namespace node
 
         private ObservableCollection<Task> _taskListSaturday;
         public ObservableCollection<Task> TaskListSaturday { get => _taskListSaturday; set { _taskListSaturday = value; OnPropertyChanged("TaskListSaturday"); } }
-        public Task SelectedTask { get => _selectedTask; set { _selectedTask = value; OnPropertyChanged("SelectedTask"); } }
+        public Task SelectedTask { 
+            get => _selectedTask; 
+            set { 
+                _selectedTask = value;
+                OnPropertyChanged("SelectedTask"); } }
 
         public string DataTimee { get => _dataTimee; set { _dataTimee = value; OnPropertyChanged("DataTimee"); } }
         private List<Task> tasks;
@@ -55,9 +59,13 @@ namespace node
             DataTimee = GetCurrentWeekDay($"{day:00}.{month:00}.{year:00}");
             string monday = DataTimee.Split(" - ", StringSplitOptions.None)[0];
             string sunday = DataTimee.Split(" - ", StringSplitOptions.None)[1];
-
             TasklistRepository = new TaskRepository();
-            tasks = TasklistRepository.read();
+            UpdateWeekDays(TasklistRepository.read());
+
+        }
+
+        private void UpdateWeekDays(List<Task> tasks)
+        {
             List<Task> tmp = new List<Task>();
             tasks.ForEach(x =>
             {
@@ -68,14 +76,7 @@ namespace node
             {
                 tmp[i].Date_time = tmp[i].Date_time.Replace("-", ".");
             }
-            tasks = tmp;
-            UpdateWeekDays();
-
-        }
-
-        private void UpdateWeekDays()
-        {
-            List<Task> tmp = tasks.Where(x =>
+            tmp = tmp.Where(x =>
             {
                 string[] splitted = x.Date_time.Split('.');
                 int day = int.Parse(splitted[2]);
@@ -154,7 +155,7 @@ namespace node
                         int month = _datePointer.Month;
                         int year = _datePointer.Year;
                         DataTimee = GetCurrentWeekDay($"{day:00}.{month:00}.{year:00}");
-                        UpdateWeekDays();
+                        UpdateWeekDays(tasks);
                     }));
             }
         }
@@ -172,7 +173,20 @@ namespace node
                         int month = _datePointer.Month;
                         int year = _datePointer.Year;
                         DataTimee = GetCurrentWeekDay($"{day:00}.{month:00}.{year:00}");
-                        UpdateWeekDays();
+                        UpdateWeekDays(tasks);
+                    }));
+            }
+        }
+        private RelayCommand createTaskCommand;
+        public RelayCommand CreateTaskCommand
+        {
+            get
+            {
+                return createTaskCommand ??
+                    (createTaskCommand = new RelayCommand(obj =>
+                    {
+                        TasklistRepository.create("Имя", "Информция");
+                        UpdateWeekDays(TasklistRepository.read());
                     }));
             }
         }

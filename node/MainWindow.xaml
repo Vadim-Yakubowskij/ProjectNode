@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Задачник"
     Width="1720"
-    MinWidth="1720"
     Height="880"
+    MinWidth="1720"
     MinHeight="880"
     WindowStyle="ThreeDBorderWindow"
     mc:Ignorable="d">
@@ -118,9 +118,9 @@
         </Border>
         <Border
             x:Name="Task"
+            Width="1117"
             Height="598"
             MinHeight="598"
-            Width="1117"
             MaxWidth="1117"
             Margin="50,220,39,0"
             Padding="20"
@@ -430,7 +430,7 @@
                             x:Name="MenuPanel7"
                             HorizontalAlignment="Stretch"
                             ItemContainerStyle="{StaticResource ListBoxItemTheme}"
-                            ItemsSource="{Binding TaskListSaturday}"
+                            ItemsSource="{Binding TaskListSunday}"
                             MouseDown="MenuPanel_MouseDown"
                             SelectedItem="{Binding SelectedTask}"
                             Style="{StaticResource ListTheme}">
@@ -460,10 +460,10 @@
         <Border
             x:Name="Info"
             Grid.ColumnSpan="2"
-            Height="598"
-            MinHeight="598"
-            MinWidth="420"
             Width="420"
+            Height="598"
+            MinWidth="420"
+            MinHeight="598"
             Margin="1228,220,50,0"
             Padding="20"
             VerticalAlignment="Top"
@@ -472,6 +472,42 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="Gray" />
             </Border.Effect>
+            <StackPanel>
+                <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
+                    <TextBlock
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Text="Имя задачи: " />
+                    <TextBlock FontSize="25" Text="{Binding SelectedTask.Name}" />
+                </StackPanel>
+                <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
+                    <TextBlock
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Text="Дата задачи: " />
+                    <TextBlock FontSize="25" Text="{Binding SelectedTask.Date_time}" />
+                </StackPanel>
+                <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
+                    <TextBlock
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Text="Доп. инфо. задачи: " />
+                    <TextBlock FontSize="25" Text="{Binding SelectedTask.More_details}" />
+                </StackPanel>
+                <Button>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Control.Background" Value="PaleGreen" />
+                            <Setter Property="Height" Value="100" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=SelectedTask}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
         </Border>
     </Grid>
 </Window>

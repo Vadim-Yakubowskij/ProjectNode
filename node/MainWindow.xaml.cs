@@ -27,8 +27,8 @@ namespace node
         TododoViewModel vm = new TododoViewModel();
         public MainWindow()
         {
-            DataContext = vm;
             InitializeComponent();
+            DataContext = vm;
         }
 
         private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)

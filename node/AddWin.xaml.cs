@@ -20,8 +20,10 @@ namespace UI
     /// </summary>
     public partial class AddWin : Window
     {
+        TododoViewModel vm = new TododoViewModel();
         public AddWin()
         {
+            DataContext = vm;
             InitializeComponent();
         }
 
