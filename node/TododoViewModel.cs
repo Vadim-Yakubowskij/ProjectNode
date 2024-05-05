@@ -41,7 +41,6 @@ namespace node
         private Task _selectedTask;
 
         private string _dataTimee;
-
         private DateTime _datePointer;
         private TaskRepository _tasklistRepository;
         private TaskRepository TasklistRepository { get => _tasklistRepository; set => _tasklistRepository = value; }

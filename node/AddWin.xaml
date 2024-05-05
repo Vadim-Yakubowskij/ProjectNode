@@ -5,8 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
+        MaxWidth="600"
+        MaxHeight="700"
+        MinHeight="700"
+        MinWidth="600"
         Title="AddWin" Height="700" Width="600">
-    <Grid>
-        
+    <Grid Background="#FFDEAD">
+        <Border 
+        Background="#FAEBD7" 
+        CornerRadius="35"
+        MinWidth="480"
+        MaxWidth="480"
+        MinHeight="620"
+        MaxHeight="620"
+        Margin="50,30,50,0"
+        Padding="20"
+        VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="Gray" />
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Создание задачи" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+                <StackPanel Margin="10,40,0,0" Orientation="Horizontal" Background="#e5c08f">
+                    <TextBlock Text="Имя задачи: " FontSize="25" />
+                </StackPanel>
+                <StackPanel Margin="10,40,0,0" Orientation="Horizontal" Background="#e5c08f">
+                    <TextBlock Text="Дата задачи: " FontSize="25" />
+                </StackPanel>
+                <StackPanel Margin="10,40,0,0" Orientation="Horizontal" Background="#e5c08f">
+                    <TextBlock Text="Доп. информация: " FontSize="25" />
+                </StackPanel>
+                <StackPanel Margin="0,250,0,0" Orientation="Horizontal">
+                    <Button HorizontalAlignment="Right"
+                            Width="90"
+                            Height="70"
+                            Margin="0,0,0,0"
+                            Background="#e5c08f"
+                            BorderBrush="#FAEBD7"
+                            FontSize="30" Click="Button_Click">
+                        <Image
+                                Width="55"
+                                Height="40"
+                                Source="/Left.png" RenderTransformOrigin="0.5,0.5" >
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Button>
+                    <Button
+                            x:Name="CloseButton"
+                            HorizontalAlignment="Left"
+                            Width="90"
+                            Height="70"
+                            Margin="260,0,0,0"
+                            Background="#e5c08f"
+                            BorderBrush="#FAEBD7"
+                            FontSize="30">
+                        <Image
+                                Width="59"
+                                Height="49"
+                                Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\Add.png" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

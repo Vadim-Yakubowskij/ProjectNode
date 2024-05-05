@@ -22,6 +22,7 @@ namespace node
     public partial class MainWindow : Window
     
     {
+        
         public static AddWin AddWindow;
         TododoViewModel vm = new TododoViewModel();
         public MainWindow()
