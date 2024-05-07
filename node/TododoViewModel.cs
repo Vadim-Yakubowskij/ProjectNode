@@ -66,6 +66,7 @@ namespace node
 
         private void UpdateWeekDays(List<Task> tasks)
         {
+            tasks = TasklistRepository.read();
             List<Task> tmp = new List<Task>();
             tasks.ForEach(x =>
             {
