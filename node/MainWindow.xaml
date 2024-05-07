@@ -85,7 +85,7 @@
                         </Button>
                     </StackPanel>
                 </Grid>
-                <Grid Margin="200,0,0,0">
+                <Grid Margin="350,0,0,0">
                     <StackPanel Orientation="Horizontal">
 
                         <Button
@@ -99,18 +99,6 @@
                             Click="AddButton_Click"
                             FontSize="30">
                             <Image Source="/plus.png" />
-                        </Button>
-                        <Button
-                            x:Name="MenuButton"
-                            Width="90"
-                            Height="70"
-                            Margin="20"
-                            HorizontalAlignment="Right"
-                            Background="#FAEBD7"
-                            BorderBrush="#FAEBD7"
-                            Click="MenuButton_Click"
-                            FontSize="30">
-                            <Image Source="/eeee.png" />
                         </Button>
                     </StackPanel>
                 </Grid>
