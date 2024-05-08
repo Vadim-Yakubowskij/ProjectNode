@@ -52,7 +52,7 @@
                     Background="#e5c08f"
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Дата задачи: " />
-                    <DatePicker Text="{Binding Date}" Width="200" FontSize="20"/>
+                    <DatePicker SelectedDate="{Binding Date}" Width="200" FontSize="20"/>
                 </StackPanel>
                 <StackPanel
                     Margin="10,40,0,0"

@@ -48,8 +48,8 @@ namespace node
         private string _name;
         public string Info { get => _info; set { _info = value; OnPropertyChanged("Info"); } }
         private string _info;
-        public string Date { get => _date; set { _date = value; OnPropertyChanged("Date"); } }
-        private string _date;
+        public DateTime Date { get => _date; set { _date = value.Date; OnPropertyChanged("Date"); } }
+        private DateTime _date;
         private List<Task> tasks;
         private Task _selectedTask;
         
@@ -192,6 +192,15 @@ namespace node
         {
             return MainWindow.AddWindow.InfoBox.Text;
         }
+        public static string ConvertDateFormat(string inputDate)
+        {
+            if (DateTime.TryParseExact(inputDate, "dd.MM.yyyy H:mm:ss", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime result))
+            {
+                return result.ToString("dd-M-yyyy");
+            }
+
+            return string.Empty;
+        }
         public RelayCommand CreateTaskCommand
         {
             get
@@ -199,7 +208,7 @@ namespace node
                 return createTaskCommand ??
                     (createTaskCommand = new RelayCommand(obj =>
                     {
-                        TasklistRepository.create(Name,Date,Info);
+                        TasklistRepository.create(Name, ConvertDateFormat(Date.ToString()),Info);
                         UpdateWeekDays(TasklistRepository.read());
                     }));
             }

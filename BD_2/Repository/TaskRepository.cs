@@ -26,7 +26,7 @@ namespace DataBase.Repository
         {
             try
             {
-                string sql = $"INSERT INTO \"tasks\" (date_time,name,more_details,isCompelited) VALUES (date(\'{data}\'), \"{name}\", \"{more}\",\"не выполнено\")";
+                string sql = $"INSERT INTO \"tasks\" (date_time,name,more_details,isCompelited) VALUES (\"{data}\", \"{name}\", \"{more}\",\"не выполнено\")";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();
@@ -116,7 +116,7 @@ namespace DataBase.Repository
                     }
                 }
             }
-            catch (SQLiteException ex)
+            catch (SQLiteException ex) 
             {
             }
         }
