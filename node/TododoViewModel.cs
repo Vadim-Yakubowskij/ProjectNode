@@ -8,6 +8,8 @@ using node1;
 
 using DataBase.Repository;
 using Task = DataBase.Repository.Task;
+using UI;
+using System.Windows.Controls.Ribbon.Primitives;
 
 namespace node
 {
@@ -41,7 +43,7 @@ namespace node
 
         public string DataTimee { get => _dataTimee; set { _dataTimee = value; OnPropertyChanged("DataTimee"); } }
         private List<Task> tasks;
-
+        public AddWin addWin;
         private Task _selectedTask;
 
         private string _dataTimee;
@@ -186,7 +188,7 @@ namespace node
                 return createTaskCommand ??
                     (createTaskCommand = new RelayCommand(obj =>
                     {
-                        TasklistRepository.create("Имя", "Информция");
+                        TasklistRepository.create(addWin.NameDB(), addWin.InfoDB());
                         UpdateWeekDays(TasklistRepository.read());
                     }));
             }

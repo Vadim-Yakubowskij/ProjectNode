@@ -39,6 +39,7 @@
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Имя задачи: " />
                     <TextBox
+                        x:Name="NameBox"
                         Width="200"
                         FontSize="20"
                         Language="ru-ru"
@@ -51,6 +52,7 @@
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Дата задачи: " />
                     <TextBox
+                        x:Name="DataBox"
                         Width="200"
                         FontSize="20"
                         Language="ru-ru"
@@ -63,6 +65,7 @@
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Доп. информация: " />
                     <TextBox
+                        x:Name="InfoBox"
                         Width="200"
                         FontSize="20"
                         Language="ru-ru"

@@ -25,9 +25,17 @@ namespace UI
             DataContext = vm;
             InitializeComponent();
         }
-
+        public string NameDB()
+        {
+            return NameBox.Text;
+        }
+        public string InfoDB()
+        {
+            return InfoBox.Text;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+     
             Close();
         }
     }
