@@ -10,6 +10,8 @@ using DataBase.Repository;
 using Task = DataBase.Repository.Task;
 using UI;
 using System.Windows.Controls.Ribbon.Primitives;
+using System.Windows.Markup;
+using System.Xml.Linq;
 
 namespace node
 {
@@ -42,10 +44,15 @@ namespace node
                 OnPropertyChanged("SelectedTask"); } }
 
         public string DataTimee { get => _dataTimee; set { _dataTimee = value; OnPropertyChanged("DataTimee"); } }
+        public string Name { get => _name; set { _name = value; OnPropertyChanged("Name"); } }
+        private string _name;
+        public string Info { get => _info; set { _info = value; OnPropertyChanged("Info"); } }
+        private string _info;
+        public string Date { get => _date; set { _date = value; OnPropertyChanged("Date"); } }
+        private string _date;
         private List<Task> tasks;
-        public AddWin addWin;
         private Task _selectedTask;
-
+        
         private string _dataTimee;
         private DateTime _datePointer;
         private TaskRepository _tasklistRepository;
@@ -181,6 +188,10 @@ namespace node
             }
         }
         private RelayCommand createTaskCommand;
+        public string NameBox()
+        {
+            return MainWindow.AddWindow.InfoBox.Text;
+        }
         public RelayCommand CreateTaskCommand
         {
             get
@@ -188,7 +199,7 @@ namespace node
                 return createTaskCommand ??
                     (createTaskCommand = new RelayCommand(obj =>
                     {
-                        TasklistRepository.create(addWin.NameDB(), addWin.InfoDB());
+                        TasklistRepository.create(Name,Date,Info);
                         UpdateWeekDays(TasklistRepository.read());
                     }));
             }

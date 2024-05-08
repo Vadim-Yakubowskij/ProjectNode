@@ -22,11 +22,11 @@ namespace DataBase.Repository
             //ConnectionString = string.Format("Data Source = {0};Version=3; FailIfMissing=False", absolutePath,true);
         }
         
-        public void create(string name, string more)
+        public void create(string name,string data, string more)
         {
             try
             {
-                string sql = $"INSERT INTO \"tasks\" (date_time,name,more_details,isCompelited) VALUES (date('now'), \"{name}\", \"{more}\",\"не выполнено\")";
+                string sql = $"INSERT INTO \"tasks\" (date_time,name,more_details,isCompelited) VALUES (date(\'{data}\'), \"{name}\", \"{more}\",\"не выполнено\")";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();
