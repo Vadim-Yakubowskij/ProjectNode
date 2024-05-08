@@ -39,7 +39,7 @@ namespace node
         {
             if(AddWindow == null)
             {
-                AddWindow = new AddWin();
+                AddWindow = new AddWin(vm);
                 AddWindow.Show();
             }
             else

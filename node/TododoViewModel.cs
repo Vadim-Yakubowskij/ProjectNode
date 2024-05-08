@@ -11,7 +11,7 @@ using Task = DataBase.Repository.Task;
 
 namespace node
 {
-    class TododoViewModel : ObservableObject
+    public class TododoViewModel : ObservableObject
     {
         private ObservableCollection<Task> _taskListSunday;
         public ObservableCollection<Task> TaskListSunday { get => _taskListSunday; set { _taskListSunday = value; OnPropertyChanged("TaskListSunday"); } }
