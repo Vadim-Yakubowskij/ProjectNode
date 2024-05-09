@@ -60,6 +60,7 @@ namespace node
 
         public TododoViewModel()
         {
+            Date = DateTime.Now;
             DateTime today = DateTime.Today;
             _datePointer = DateTime.Today;
             int day = today.Day;
@@ -75,7 +76,6 @@ namespace node
 
         private void UpdateWeekDays(List<Task> tasks)
         {
-            tasks = TasklistRepository.read();
             List<Task> tmp = new List<Task>();
             tasks.ForEach(x =>
             {
@@ -165,7 +165,7 @@ namespace node
                         int month = _datePointer.Month;
                         int year = _datePointer.Year;
                         DataTimee = GetCurrentWeekDay($"{day:00}.{month:00}.{year:00}");
-                        UpdateWeekDays(tasks);
+                        UpdateWeekDays(TasklistRepository.read());
                     }));
             }
         }
@@ -183,7 +183,7 @@ namespace node
                         int month = _datePointer.Month;
                         int year = _datePointer.Year;
                         DataTimee = GetCurrentWeekDay($"{day:00}.{month:00}.{year:00}");
-                        UpdateWeekDays(tasks);
+                        UpdateWeekDays(TasklistRepository.read());
                     }));
             }
         }
@@ -196,7 +196,7 @@ namespace node
         {
             if (DateTime.TryParseExact(inputDate, "dd.MM.yyyy H:mm:ss", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime result))
             {
-                return result.ToString("dd-M-yyyy");
+                return result.ToString("yyyy-MM-dd");
             }
 
             return string.Empty;
@@ -208,8 +208,12 @@ namespace node
                 return createTaskCommand ??
                     (createTaskCommand = new RelayCommand(obj =>
                     {
+                        
                         TasklistRepository.create(Name, ConvertDateFormat(Date.ToString()),Info);
                         UpdateWeekDays(TasklistRepository.read());
+                        Name= string.Empty;
+                        Info = string.Empty;
+                        Date = DateTime.Now;
                     }));
             }
         }
