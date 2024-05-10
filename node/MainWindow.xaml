@@ -43,8 +43,8 @@
                             Height="70"
                             Margin="220,0,110,0"
                             HorizontalAlignment="Right"
-                            Background="#FAEBD7"
-                            BorderBrush="#FAEBD7"
+                            Background="#f0edea"
+                            BorderBrush="#ccc0af"
                             Click="MoveLeft_Click"
                             Command="{Binding PrevWeekCommand}"
                             FontSize="30">
@@ -73,8 +73,8 @@
                             Height="70"
                             Margin="120,0,0,0"
                             HorizontalAlignment="Right"
-                            Background="#FAEBD7"
-                            BorderBrush="#FAEBD7"
+                            Background="#f0edea"
+                            BorderBrush="#ccc0af"
                             Click="MoveRight_Click"
                             Command="{Binding NextWeekCommand}"
                             FontSize="30">
@@ -94,8 +94,8 @@
                             Height="70"
                             Margin="20"
                             HorizontalAlignment="Right"
-                            Background="#FAEBD7"
-                            BorderBrush="#FAEBD7"
+                            Background="#f0edea"
+                            BorderBrush="#ccc0af"
                             Click="AddButton_Click"
                             FontSize="30">
                             <Image Source="/plus.png" />
@@ -482,19 +482,42 @@
                         Text="Доп. инфо. задачи: " />
                     <TextBlock FontSize="25" Text="{Binding SelectedTask.More_details}" />
                 </StackPanel>
-                <Button>
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Control.Background" Value="PaleGreen" />
-                            <Setter Property="Height" Value="100" />
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Path=SelectedTask}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Collapsed" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="0,0,210,0">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Control.Background" Value="#f0edea" />
+                                <Setter Property="Control.BorderBrush" Value="#ccc0af" />
+                                <Setter Property="HorizontalAlignment" Value="Right"/>
+                                <Setter Property="Height"  Value="80" />
+                                <Setter Property="Width"  Value="80" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=SelectedTask}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\update.png" />
+                    </Button>
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Control.Background" Value="#f0edea" />
+                                <Setter Property="Control.BorderBrush" Value="#ccc0af" />
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="Height"  Value="80" />
+                                <Setter Property="Width"  Value="80" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=SelectedTask}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\delete.png" />
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </Border>
     </Grid>
