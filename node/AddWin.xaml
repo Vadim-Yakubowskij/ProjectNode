@@ -107,7 +107,7 @@
                         <Image
                             Width="59"
                             Height="49"
-                            Source="/Add.png" />
+                            Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\Add.png" />
                     </Button>
                 </StackPanel>
             </StackPanel>
