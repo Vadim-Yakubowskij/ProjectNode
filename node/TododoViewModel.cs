@@ -12,6 +12,7 @@ using UI;
 using System.Windows.Controls.Ribbon.Primitives;
 using System.Windows.Markup;
 using System.Xml.Linq;
+using System.Security.Cryptography;
 
 namespace node
 {
@@ -44,8 +45,12 @@ namespace node
                 OnPropertyChanged("SelectedTask"); } }
 
         public string DataTimee { get => _dataTimee; set { _dataTimee = value; OnPropertyChanged("DataTimee"); } }
+        public string WinInfo { get => _winInfo; set { _winInfo = value; OnPropertyChanged("WinInfo"); } }
+        private string _winInfo;
         public string Name { get => _name; set { _name = value; OnPropertyChanged("Name"); } }
         private string _name;
+        public string Id { get => _id; set { _id = value; OnPropertyChanged("Id"); } }
+        private string _id;
         public string Info { get => _info; set { _info = value; OnPropertyChanged("Info"); } }
         private string _info;
         public DateTime Date { get => _date; set { _date = value.Date; OnPropertyChanged("Date"); } }
@@ -188,6 +193,11 @@ namespace node
             }
         }
         private RelayCommand createTaskCommand;
+
+        private RelayCommand deleteTaskCommand;
+
+        private RelayCommand upadateTaskCommand;
+
         public string NameBox()
         {
             return MainWindow.AddWindow.InfoBox.Text;
@@ -217,7 +227,32 @@ namespace node
                     }));
             }
         }
+        public RelayCommand DeleteTaskCommand
+        {
+            get
+            {
+                return deleteTaskCommand ??
+                    (deleteTaskCommand = new RelayCommand(obj =>
+                    {
 
+                        TasklistRepository.delete(SelectedTask.Id) ;
+                        UpdateWeekDays(TasklistRepository.read());
+                    }));
+            }
+        }
+        public RelayCommand UpadateTaskCommand
+        {
+            get
+            {
+                return upadateTaskCommand ??
+                    (upadateTaskCommand = new RelayCommand(obj =>
+                    {
+
+                        TasklistRepository.Update(SelectedTask.Id,SelectedTask.Name, ConvertDateFormat(SelectedTask.Date_time.ToString()), SelectedTask.More_details);
+                        UpdateWeekDays(TasklistRepository.read());
+                    }));
+            }
+        }
     }
 
 

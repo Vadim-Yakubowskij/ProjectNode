@@ -483,7 +483,7 @@
                     <TextBlock FontSize="25" Text="{Binding SelectedTask.More_details}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Margin="0,0,210,0">
+                    <Button Margin="0,0,210,0" x:Name="UpdateButton" Click="UpdateButton_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Control.Background" Value="#f0edea" />
@@ -500,7 +500,7 @@
                         </Button.Style>
                         <Image Source="C:\Users\Вадим\OneDrive\Документы\GitHub\node1\node\update.png" />
                     </Button>
-                    <Button>
+                    <Button Command="{Binding DeleteTaskCommand}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Control.Background" Value="#f0edea" />

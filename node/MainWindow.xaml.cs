@@ -24,6 +24,7 @@ namespace node
     {
         
         public static AddWin AddWindow;
+        public static UpdateWin UpdateWindow;
         TododoViewModel vm = new TododoViewModel();
         public MainWindow()
         {
@@ -48,9 +49,17 @@ namespace node
             }
         }
 
-        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        public void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (UpdateWindow == null)
+            {
+                UpdateWindow = new UpdateWin(vm);
+                UpdateWindow.Show();
+            }
+            else
+            {
+                UpdateWindow.Activate();
+            }
         }
 
         private void MoveRight_Click(object sender, RoutedEventArgs e)
@@ -68,5 +77,6 @@ namespace node
                 scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
                 e.Handled = true;
         }
+
     }
 }
