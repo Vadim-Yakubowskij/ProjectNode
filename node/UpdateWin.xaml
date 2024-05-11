@@ -37,7 +37,7 @@
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Имя задачи: " />
                     <TextBox
-                        Text="{Binding SelectedTask.Name}"
+                        Text="{Binding Name}"
                         x:Name="NameBox"
                         Width="200"
                         FontSize="20"
@@ -50,7 +50,7 @@
                     Background="#e5c08f"
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Дата задачи: " />
-                    <DatePicker SelectedDate="{Binding SelectedTask.Date_time}" Width="200" FontSize="20"/>
+                    <DatePicker SelectedDate="{Binding Date}" Width="200" FontSize="20"/>
                 </StackPanel>
                 <StackPanel
                     Margin="10,40,0,0"
@@ -58,7 +58,7 @@
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Доп. информация: " />
                     <TextBox
-                        Text="{Binding SelectedTask.More_details}"
+                        Text="{Binding Info}"
                         x:Name="InfoBox"
                         Width="200"
                         FontSize="20"

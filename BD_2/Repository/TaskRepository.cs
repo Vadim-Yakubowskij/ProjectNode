@@ -87,7 +87,7 @@ namespace DataBase.Repository
             try
             {
 
-                string sql = $"UPDATE \"tasks\"SET name = \"{name}\" more_details = \"{more}\" more_details = \"{more}\" WHERE id = {id};";
+                string sql = $"UPDATE \"tasks\"SET name = \"{name}\", Date_time = \"{date}\", more_details = \"{more}\" WHERE id = {id};";
                 using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
                 {
                     connection.Open();
