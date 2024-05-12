@@ -12,7 +12,7 @@
     MinHeight="880"
     WindowStyle="ThreeDBorderWindow"
     mc:Ignorable="d">
-    <Grid Background="#FFDEAD" Cursor="">
+    <Grid Background="#A6D0C7" Cursor="">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="457*" />
             <ColumnDefinition Width="183*" />
@@ -25,13 +25,14 @@
             Margin="50,30,50,0"
             Padding="20"
             VerticalAlignment="Top"
-            Background="#FAEBD7"
+            Background="#036152"
             CornerRadius="35">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="Gray" />
             </Border.Effect>
             <StackPanel Orientation="Horizontal">
                 <TextBlock
+                    Foreground="#DFEADE"
                     FontSize="70"
                     FontWeight="Bold"
                     Text="Tasks" />
@@ -43,8 +44,8 @@
                             Height="70"
                             Margin="220,0,110,0"
                             HorizontalAlignment="Right"
-                            Background="#f0edea"
-                            BorderBrush="#ccc0af"
+                            Background="#DFEADE"
+                            BorderBrush="#DFEADE"
                             Click="MoveLeft_Click"
                             Command="{Binding PrevWeekCommand}"
                             FontSize="30">
@@ -66,6 +67,8 @@
                         <TextBlock
                             x:Name="DataTimee"
                             FontSize="45"
+                            FontWeight="Bold"
+                            Foreground="#DFEADE"
                             Text="{Binding DataTimee}" />
                         <Button
                             x:Name="MoveRight"
@@ -73,8 +76,8 @@
                             Height="70"
                             Margin="120,0,0,0"
                             HorizontalAlignment="Right"
-                            Background="#f0edea"
-                            BorderBrush="#ccc0af"
+                            Background="#DFEADE"
+                            BorderBrush="#DFEADE"
                             Click="MoveRight_Click"
                             Command="{Binding NextWeekCommand}"
                             FontSize="30">
@@ -94,8 +97,8 @@
                             Height="70"
                             Margin="20"
                             HorizontalAlignment="Right"
-                            Background="#f0edea"
-                            BorderBrush="#ccc0af"
+                            Background="#DFEADE"
+                            BorderBrush="#DFEADE"
                             Click="AddButton_Click"
                             FontSize="30">
                             <Image Source="/plus.png" />
@@ -113,7 +116,7 @@
             Margin="50,220,39,0"
             Padding="20"
             VerticalAlignment="Top"
-            Background="#FAEBD7"
+            Background="#036152"
             CornerRadius="35">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="Gray" />
@@ -126,6 +129,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
+                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
@@ -174,6 +178,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
+                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
@@ -222,6 +227,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
+                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
@@ -270,6 +276,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
+                        Foreground="#DFEADE"
                         Grid.Row="0"
                         HorizontalAlignment="Center"
                         FontSize="20"
@@ -319,6 +326,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
+                        Foreground="#DFEADE"
                         Grid.Row="0"
                         HorizontalAlignment="Center"
                         FontSize="20"
@@ -363,6 +371,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
+                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
@@ -406,6 +415,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
+                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
@@ -455,7 +465,7 @@
             Margin="1228,220,50,0"
             Padding="20"
             VerticalAlignment="Top"
-            Background="#FAEBD7"
+            Background="#036152"
             CornerRadius="35">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="Gray" />
@@ -463,31 +473,34 @@
             <StackPanel>
                 <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
                     <TextBlock
+                        Foreground="#DFEADE"
                         FontSize="25"
                         FontWeight="Bold"
                         Text="Имя задачи: " />
-                    <TextBlock FontSize="25" Text="{Binding SelectedTask.Name}" />
+                    <TextBlock Foreground="#DFEADE" FontSize="25" Text="{Binding SelectedTask.Name}" />
                 </StackPanel>
                 <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
                     <TextBlock
+                        Foreground="#DFEADE"
                         FontSize="25"
                         FontWeight="Bold"
                         Text="Дата задачи: " />
-                    <TextBlock FontSize="25" Text="{Binding SelectedTask.Date_time}" />
+                    <TextBlock Foreground="#DFEADE" FontSize="25" Text="{Binding SelectedTask.Date_time}" />
                 </StackPanel>
                 <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
                     <TextBlock
+                        Foreground="#DFEADE"
                         FontSize="25"
                         FontWeight="Bold"
                         Text="Доп. инфо. задачи: " />
-                    <TextBlock FontSize="25" Text="{Binding SelectedTask.More_details}" />
+                    <TextBlock Foreground="#DFEADE" FontSize="25" Text="{Binding SelectedTask.More_details}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Margin="0,0,210,0" x:Name="UpdateButton" Click="UpdateButton_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
-                                <Setter Property="Control.Background" Value="#f0edea" />
-                                <Setter Property="Control.BorderBrush" Value="#ccc0af" />
+                                <Setter Property="Control.Background" Value="#DFEADE" />
+                                <Setter Property="Control.BorderBrush" Value="#DFEADE" />
                                 <Setter Property="HorizontalAlignment" Value="Right"/>
                                 <Setter Property="Height"  Value="80" />
                                 <Setter Property="Width"  Value="80" />
@@ -503,8 +516,8 @@
                     <Button Command="{Binding DeleteTaskCommand}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
-                                <Setter Property="Control.Background" Value="#f0edea" />
-                                <Setter Property="Control.BorderBrush" Value="#ccc0af" />
+                                <Setter Property="Control.Background" Value="#DFEADE" />
+                                <Setter Property="Control.BorderBrush" Value="#DFEADE" />
                                 <Setter Property="HorizontalAlignment" Value="Left"/>
                                 <Setter Property="Height"  Value="80" />
                                 <Setter Property="Width"  Value="80" />

@@ -13,7 +13,7 @@
     MaxWidth="600"
     MaxHeight="700"
     mc:Ignorable="d">
-    <Grid Background="#FFDEAD">
+    <Grid Background="#A6D0C7">
         <Border
             MinWidth="480"
             MinHeight="620"
@@ -22,20 +22,21 @@
             Margin="50,30,50,0"
             Padding="20"
             VerticalAlignment="Top"
-            Background="#FAEBD7"
+            Background="#036152"
             CornerRadius="35">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="Gray" />
             </Border.Effect>
             <StackPanel>
                 <TextBlock
+                    Foreground="#DFEADE"
                     HorizontalAlignment="Center"
                     FontSize="30"
                     FontWeight="Bold"
                     Text="Создание задачи" />
                 <StackPanel
                     Margin="10,40,0,0"
-                    Background="#e5c08f"
+                    Background="White"
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Имя задачи: " />
                     <TextBox
@@ -49,14 +50,14 @@
                 </StackPanel>
                 <StackPanel
                     Margin="10,40,0,0"
-                    Background="#e5c08f"
+                    Background="White"
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Дата задачи: " />
                     <DatePicker SelectedDate="{Binding Date}" Width="200" FontSize="20"/>
                 </StackPanel>
                 <StackPanel
                     Margin="10,40,0,0"
-                    Background="#e5c08f"
+                    Background="White"
                     Orientation="Horizontal">
                     <TextBlock FontSize="25" Text="Доп. информация: " />
                     <TextBox
@@ -75,8 +76,8 @@
                         Height="70"
                         Margin="0,0,0,0"
                         HorizontalAlignment="Right"
-                        Background="#e5c08f"
-                        BorderBrush="#FAEBD7"
+                        Background="#DFEADE"
+                        BorderBrush="#DFEADE"
                         Click="Button_Click"
                         FontSize="30">
                         <Image
@@ -100,8 +101,8 @@
                         Height="70"
                         Margin="260,0,0,0"
                         HorizontalAlignment="Left"
-                        Background="#e5c08f"
-                        BorderBrush="#FAEBD7"
+                        Background="#DFEADE"
+                        BorderBrush="#DFEADE"
                         Command="{Binding CreateTaskCommand}"
                         FontSize="30">
                         <Image
