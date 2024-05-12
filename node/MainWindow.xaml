@@ -35,14 +35,14 @@
                     Foreground="#DFEADE"
                     FontSize="70"
                     FontWeight="Bold"
-                    Text="Tasks" />
+                    Text="Workbook" />
                 <Grid>
                     <StackPanel Orientation="Horizontal">
                         <Button
                             x:Name="MoveLeft"
                             Width="90"
                             Height="70"
-                            Margin="220,0,110,0"
+                            Margin="100,0,110,0"
                             HorizontalAlignment="Right"
                             Background="#DFEADE"
                             BorderBrush="#DFEADE"
@@ -88,7 +88,7 @@
                         </Button>
                     </StackPanel>
                 </Grid>
-                <Grid Margin="350,0,0,0">
+                <Grid Margin="280,0,0,0">
                     <StackPanel Orientation="Horizontal">
 
                         <Button
