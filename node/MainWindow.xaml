@@ -32,9 +32,9 @@
             </Border.Effect>
             <StackPanel Orientation="Horizontal">
                 <TextBlock
-                    Foreground="#DFEADE"
                     FontSize="70"
                     FontWeight="Bold"
+                    Foreground="#DFEADE"
                     Text="Workbook" />
                 <Grid>
                     <StackPanel Orientation="Horizontal">
@@ -129,10 +129,10 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Понедельник" />
                     <ScrollViewer
                         Grid.Row="1"
@@ -178,10 +178,10 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Вторник" />
                     <ScrollViewer
                         Grid.Row="1"
@@ -227,10 +227,10 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Среда" />
                     <ScrollViewer
                         Grid.Row="1"
@@ -276,11 +276,11 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Foreground="#DFEADE"
                         Grid.Row="0"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Четверг" />
                     <ScrollViewer
                         Grid.Row="1"
@@ -326,11 +326,11 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Foreground="#DFEADE"
                         Grid.Row="0"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Пятница" />
                     <ScrollViewer
                         Grid.Row="1"
@@ -371,10 +371,10 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Суббота" />
                     <ScrollViewer
                         Grid.Row="1"
@@ -415,10 +415,10 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        Foreground="#DFEADE"
                         HorizontalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Воскресенье" />
                     <ScrollViewer
                         Grid.Row="1"
@@ -437,11 +437,11 @@
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Имя:" />
-                                            <TextBlock Margin="5" Text="{Binding Name}" />
+                                            <TextBlock Margin="5" Text="{Binding Name_short}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
-                                            <TextBlock Margin="5" Text="{Binding More_details}" />
+                                            <TextBlock Margin="5" Text="{Binding More_details_short}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Дата:" />
@@ -473,37 +473,53 @@
             <StackPanel>
                 <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
                     <TextBlock
-                        Foreground="#DFEADE"
                         FontSize="25"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Имя задачи: " />
-                    <TextBlock Foreground="#DFEADE" FontSize="25" Text="{Binding SelectedTask.Name}" />
+                    <TextBlock
+                        FontSize="25"
+                        Foreground="#DFEADE"
+                        Text="{Binding SelectedTask.Name}" />
                 </StackPanel>
                 <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
                     <TextBlock
-                        Foreground="#DFEADE"
                         FontSize="25"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Дата задачи: " />
-                    <TextBlock Foreground="#DFEADE" FontSize="25" Text="{Binding SelectedTask.Date_time}" />
-                </StackPanel>
-                <StackPanel Margin="10,10,10,40" Orientation="Horizontal">
                     <TextBlock
+                        FontSize="25"
                         Foreground="#DFEADE"
+                        Text="{Binding SelectedTask.Date_time}" />
+                </StackPanel>
+                <StackPanel Margin="10,10,10,40" Orientation="Vertical">
+                    <TextBlock
                         FontSize="25"
                         FontWeight="Bold"
+                        Foreground="#DFEADE"
                         Text="Доп. инфо. задачи: " />
-                    <TextBlock Foreground="#DFEADE" FontSize="25" Text="{Binding SelectedTask.More_details}" />
+                    <ScrollViewer PreviewMouseWheel="MenuPanel3_PreviewMouseWheel" VerticalScrollBarVisibility="Auto">
+                        <TextBlock
+                            Height="249"
+                            FontSize="25"
+                            Foreground="#DFEADE"
+                            Text="{Binding SelectedTask.More_details}"
+                            TextWrapping="Wrap" />
+                    </ScrollViewer>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Margin="0,0,210,0" x:Name="UpdateButton" Click="UpdateButton_Click">
+                    <Button
+                        x:Name="UpdateButton"
+                        Margin="0,0,210,0"
+                        Click="UpdateButton_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Control.Background" Value="#DFEADE" />
                                 <Setter Property="Control.BorderBrush" Value="#DFEADE" />
-                                <Setter Property="HorizontalAlignment" Value="Right"/>
-                                <Setter Property="Height"  Value="80" />
-                                <Setter Property="Width"  Value="80" />
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                <Setter Property="Height" Value="80" />
+                                <Setter Property="Width" Value="80" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding Path=SelectedTask}" Value="{x:Null}">
                                         <Setter Property="Visibility" Value="Collapsed" />
@@ -518,9 +534,9 @@
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Control.Background" Value="#DFEADE" />
                                 <Setter Property="Control.BorderBrush" Value="#DFEADE" />
-                                <Setter Property="HorizontalAlignment" Value="Left"/>
-                                <Setter Property="Height"  Value="80" />
-                                <Setter Property="Width"  Value="80" />
+                                <Setter Property="HorizontalAlignment" Value="Left" />
+                                <Setter Property="Height" Value="80" />
+                                <Setter Property="Width" Value="80" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding Path=SelectedTask}" Value="{x:Null}">
                                         <Setter Property="Visibility" Value="Collapsed" />
