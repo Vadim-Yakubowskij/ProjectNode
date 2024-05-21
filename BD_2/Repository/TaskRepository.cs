@@ -12,7 +12,7 @@ namespace DataBase.Repository
 {
     public class TaskRepository : Interface
     {
-        private string ConnectionString = "Data Source = C:\\Users\\1\\Documents\\GitHub\\node1\\BD_2\\DB\\Tasklist.db; FailIfMissing=False";
+        private string ConnectionString = "Data Source = C:\\Users\\Вадим\\OneDrive\\Документы\\GitHub\\node1\\BD_2\\DB\\Tasklist.db; FailIfMissing=False";
         public TaskRepository()
         {
             //string relativePath = @"DB\Tasklist.db";

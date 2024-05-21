@@ -49,8 +49,8 @@ namespace node
         private string _winInfo;
         public string Name { get => _name; set { _name = value; OnPropertyChanged("Name"); } }
         private string _name;
-        public string Id { get => _id; set { _id = value; OnPropertyChanged("Id"); } }
-        private string _id;
+        public int Id { get => _id; set { _id = value; OnPropertyChanged("Id"); } }
+        private int _id;
         public string Info { get => _info; set { _info = value; OnPropertyChanged("Info"); } }
         private string _info;
         public DateTime Date { get => _date; set { _date = value.Date; OnPropertyChanged("Date"); } }

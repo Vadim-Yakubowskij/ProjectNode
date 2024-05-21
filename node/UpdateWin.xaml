@@ -45,7 +45,7 @@
                         Language="ru-ru"
                         MaxLength="100"
                         SpellCheck.IsEnabled="True"
-                        Text="{Binding SelectedTask.Name}" />
+                        Text="{Binding Name}" />
                 </StackPanel>
                 <StackPanel
                     Margin="10,40,0,0"
@@ -55,7 +55,7 @@
                     <DatePicker
                         Width="200"
                         FontSize="20"
-                        SelectedDate="{Binding SelectedTask.Date_time}" />
+                        SelectedDate="{Binding Date}" />
                 </StackPanel>
                 <StackPanel
                     Margin="10,40,0,0"
@@ -69,7 +69,7 @@
                         Language="ru-ru"
                         MaxLength="100"
                         SpellCheck.IsEnabled="True"
-                        Text="{Binding SelectedTask.More_Details}" />
+                        Text="{Binding Info}" />
                 </StackPanel>
                 <StackPanel Margin="0,250,0,0" Orientation="Horizontal">
                     <Button
