@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,17 @@ namespace node
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    
+
     {
-        
+
         public static AddWin AddWindow;
         public static UpdateWin UpdateWindow;
-        TododoViewModel vm = new TododoViewModel();
+        TaskRepository taskRepository = new TaskRepository();
+        TododoViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
+            vm = new TododoViewModel(taskRepository);
             DataContext = vm;
         }
 
@@ -38,7 +41,7 @@ namespace node
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if(AddWindow == null)
+            if (AddWindow == null)
             {
                 AddWindow = new AddWin(vm);
                 AddWindow.Show();
@@ -51,15 +54,8 @@ namespace node
 
         public void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (UpdateWindow == null)
-            {
-                UpdateWindow = new UpdateWin(vm);
-                UpdateWindow.Show();
-            }
-            else
-            {
-                UpdateWindow.Activate();
-            }
+            UpdateWindow = new UpdateWin(vm);
+            UpdateWindow.Show();
         }
 
         private void MoveRight_Click(object sender, RoutedEventArgs e)
@@ -73,9 +69,9 @@ namespace node
 
         private void MenuPanel3_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
-                ScrollViewer scv = (ScrollViewer)sender;
-                scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
-                e.Handled = true;
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
         }
 
     }

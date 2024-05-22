@@ -63,7 +63,7 @@ namespace node
         private TaskRepository _tasklistRepository;
         private TaskRepository TasklistRepository { get => _tasklistRepository; set => _tasklistRepository = value; }
 
-        public TododoViewModel()
+        public TododoViewModel(TaskRepository taskRepository)
         {
             Date = DateTime.Now;
             DateTime today = DateTime.Today;
@@ -74,7 +74,7 @@ namespace node
             DataTimee = GetCurrentWeekDay($"{day:00}.{month:00}.{year:00}");
             string monday = DataTimee.Split(" - ", StringSplitOptions.None)[0];
             string sunday = DataTimee.Split(" - ", StringSplitOptions.None)[1];
-            TasklistRepository = new TaskRepository();
+            TasklistRepository = taskRepository;
             UpdateWeekDays(TasklistRepository.read());
 
         }
@@ -248,7 +248,7 @@ namespace node
                     (upadateTaskCommand = new RelayCommand(obj =>
                     {
 
-                        TasklistRepository.Update(SelectedTask.Id,Name, ConvertDateFormat(Date.ToString()), Info);
+                        TasklistRepository.Update(SelectedTask.Id, SelectedTask.Name, ConvertDateFormat(SelectedTask.Date_time.ToString()), SelectedTask.More_details);
                         UpdateWeekDays(TasklistRepository.read());
                         Name = string.Empty;
                         Info = string.Empty;
