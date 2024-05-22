@@ -45,7 +45,7 @@
                         Language="ru-ru"
                         MaxLength="100"
                         SpellCheck.IsEnabled="True"
-                        Text="{Binding Name}" />
+                        Text="{Binding SelectedTask.Name}" />
                 </StackPanel>
                 <StackPanel
                     Margin="10,40,0,0"
@@ -55,23 +55,24 @@
                     <DatePicker
                         Width="200"
                         FontSize="20"
-                        SelectedDate="{Binding Date}" />
+                        SelectedDate="{Binding SelectedTask.Date_time}" />
                 </StackPanel>
-                <StackPanel
-                    Margin="10,40,0,0"
-                    Background="White"
-                    Orientation="Horizontal">
-                    <TextBlock FontSize="25" Text="Доп. информация: " />
-                    <TextBox
-                        x:Name="InfoBox"
-                        Width="200"
-                        FontSize="20"
-                        Language="ru-ru"
-                        MaxLength="100"
-                        SpellCheck.IsEnabled="True"
-                        Text="{Binding Info}" />
+                <StackPanel Margin="10,10,10,40" Orientation="Vertical">
+                    <TextBlock
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Foreground="#DFEADE"
+                        Text="Доп. инфо. задачи: " />
+                    <ScrollViewer PreviewMouseWheel="MenuPanel3_PreviewMouseWheel" VerticalScrollBarVisibility="Auto">
+                        <TextBlock
+                            Height="249"
+                            FontSize="25"
+                            Foreground="#DFEADE"
+                            Text="{Binding SelectedTask.More_details}"
+                            TextWrapping="Wrap" />
+                    </ScrollViewer>
                 </StackPanel>
-                <StackPanel Margin="0,250,0,0" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
                     <Button
                         x:Name="CloseButton"
                         Width="90"
