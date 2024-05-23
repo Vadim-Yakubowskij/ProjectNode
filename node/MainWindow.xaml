@@ -152,14 +152,14 @@
                                             <TextBlock Margin="5" Text="Имя:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding Name}"
+                                                Text="{Binding Name_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding More_details}"
+                                                Text="{Binding More_details_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
@@ -201,14 +201,14 @@
                                             <TextBlock Margin="5" Text="Имя:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding Name}"
+                                                Text="{Binding Name_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding More_details}"
+                                                Text="{Binding More_details_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
@@ -250,14 +250,14 @@
                                             <TextBlock Margin="5" Text="Имя:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding Name}"
+                                                Text="{Binding Name_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding More_details}"
+                                                Text="{Binding More_details_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
@@ -300,14 +300,14 @@
                                             <TextBlock Margin="5" Text="Имя:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding Name}"
+                                                Text="{Binding Name_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
                                             <TextBlock
                                                 Margin="5"
-                                                Text="{Binding More_details}"
+                                                Text="{Binding More_details_short}"
                                                 TextTrimming="CharacterEllipsis" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
@@ -349,11 +349,11 @@
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Имя:" />
-                                            <TextBlock Margin="5" Text="{Binding Name}" />
+                                            <TextBlock Margin="5" Text="{Binding Name_short}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
-                                            <TextBlock Margin="5" Text="{Binding More_details}" />
+                                            <TextBlock Margin="5" Text="{Binding More_details_short}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Дата:" />
@@ -393,11 +393,11 @@
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Имя:" />
-                                            <TextBlock Margin="5" Text="{Binding Name}" />
+                                            <TextBlock Margin="5" Text="{Binding Name_short}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Детали:" />
-                                            <TextBlock Margin="5" Text="{Binding More_details}" />
+                                            <TextBlock Margin="5" Text="{Binding More_details_short}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Margin="5" Text="Дата:" />
@@ -501,7 +501,7 @@
                         Text="Доп. инфо. задачи: " />
                     <ScrollViewer PreviewMouseWheel="MenuPanel3_PreviewMouseWheel" VerticalScrollBarVisibility="Auto">
                         <TextBlock
-                            Height="249"
+                            Height="223"
                             FontSize="25"
                             Foreground="#DFEADE"
                             Text="{Binding SelectedTask.More_details}"

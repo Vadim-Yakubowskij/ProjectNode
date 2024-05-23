@@ -248,7 +248,7 @@ namespace node
                     (upadateTaskCommand = new RelayCommand(obj =>
                     {
 
-                        TasklistRepository.Update(SelectedTask.Id, SelectedTask.Name, ConvertDateFormat(SelectedTask.Date_time.ToString()), SelectedTask.More_details);
+                        TasklistRepository.Update(SelectedTask.Id, SelectedTask.Name, SelectedTask.Date_time.ToString(), SelectedTask.More_details);
                         UpdateWeekDays(TasklistRepository.read());
                         Name = string.Empty;
                         Info = string.Empty;

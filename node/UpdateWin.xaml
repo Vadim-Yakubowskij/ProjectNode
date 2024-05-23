@@ -65,11 +65,20 @@
                         Text="Доп. инфо. задачи: " />
                     <ScrollViewer PreviewMouseWheel="MenuPanel3_PreviewMouseWheel" VerticalScrollBarVisibility="Auto">
                         <TextBlock
-                            Height="249"
+                            Height="220"
                             FontSize="25"
                             Foreground="#DFEADE"
                             Text="{Binding SelectedTask.More_details}"
-                            TextWrapping="Wrap" />
+                            TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" >
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-0.822"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="-1.579"/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
                     </ScrollViewer>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
