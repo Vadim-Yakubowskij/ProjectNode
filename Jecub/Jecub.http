@@ -1,0 +1,6 @@
+@Jecub_HostAddress = http://localhost:5073
+
+GET {{Jecub_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
