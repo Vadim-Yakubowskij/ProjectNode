@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBase", "BD_2\DataBase.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jecub", "..\Jecub\Jecub.csproj", "{D5B0D663-AE97-47AA-B6B6-7FE8FFFFC2B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JecubNode", "JecubNode\JecubNode.csproj", "{3CA1DAC0-1C8D-4BA6-AE9E-DBE39D7D9410}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D5B0D663-AE97-47AA-B6B6-7FE8FFFFC2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5B0D663-AE97-47AA-B6B6-7FE8FFFFC2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5B0D663-AE97-47AA-B6B6-7FE8FFFFC2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA1DAC0-1C8D-4BA6-AE9E-DBE39D7D9410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA1DAC0-1C8D-4BA6-AE9E-DBE39D7D9410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA1DAC0-1C8D-4BA6-AE9E-DBE39D7D9410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA1DAC0-1C8D-4BA6-AE9E-DBE39D7D9410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
